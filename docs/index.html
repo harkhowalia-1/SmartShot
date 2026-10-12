@@ -58,8 +58,7 @@
 
   /* The live camera */
   .story { background:#000; color:#f5f5f7; }
-  .s-demo { height:200vh; position:relative; }
-  .s-you { height:170vh; position:relative; }
+  .s-demo { height:240vh; position:relative; }
   .pin { position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .demo { width:min(1180px,92vw); display:grid; grid-template-columns:1fr auto; gap:4vw; align-items:center; }
   .dtext { position:relative; min-height:clamp(240px,34vh,380px); }
@@ -86,7 +85,7 @@
   .sscam-zoom i.on { width:50px; height:50px; background:rgba(70,25,15,.6); color:#FFD60A; }
   .sscam .bracket { color:#FFD60A; }
   .sscam .bracket.not-ready { color:rgba(255,255,255,.85); }
-  .sscam-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+  .sscam-flash { position:absolute; inset:0; background:#000; opacity:0; pointer-events:none; }
   .sscam-thumb { position:absolute; left:42px; top:1090px; width:78px; height:78px; border-radius:14px; overflow:hidden; background:#1C1C1E; }
   .sscam-thumb-photo { position:absolute; inset:0; width:78px; height:78px; }
   .sscam-shutter { position:absolute; left:242px; top:1071px; width:116px; height:116px; }
@@ -95,17 +94,8 @@
 
   .phonebox .sscam { left:0; top:0; transform:scale(var(--ps,.62)); transform-origin:0 0; font-family:inherit; }
   .phonebox .sscam-pill { left:0; right:0; margin:0 auto; width:max-content; transform:none; }
-  .scan { position:absolute; left:190px; top:273px; width:220px; height:220px; filter:drop-shadow(0 0 22px rgba(255,214,10,.35)); opacity:0; }
+  .tap { position:absolute; left:242px; top:1071px; width:116px; height:116px; border-radius:50%; border:6px solid #fff; opacity:0; pointer-events:none; }
   .flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
-
-  /* Even you */
-  .youimg { position:absolute; inset:0; overflow:hidden; clip-path:inset(18% 36% 18% 36% round 40px); }
-  .youimg svg { width:100%; height:100%; display:block; transform-origin:50% 60%; }
-  .yshade { position:absolute; inset:0; background:linear-gradient(160deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 50%); }
-  .yt { position:absolute; left:max(22px,7vw); top:max(90px,13vh); color:#1d1d1f; font-size:clamp(44px,7vw,112px); }
-  .yt span { display:inline-block; }
-  .yt .under { position:relative; isolation:isolate; }
-  .yt .under i { position:absolute; left:-4px; right:-4px; bottom:.04em; height:.18em; background:var(--yellow); border-radius:3px; z-index:-1; transform-origin:0 50%; }
 
   /* The facts */
   .facts { padding:140px 0 120px; }
@@ -139,7 +129,7 @@
     .facts { padding:96px 0 80px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .s-demo, .s-you { height:auto; }
+    .s-demo { height:auto; }
     .pin { position:relative; height:auto; min-height:100vh; padding:80px 0; }
   }
 </style>
@@ -171,11 +161,12 @@
 </section>
 
 <div class="story">
-  <section class="s-demo" id="how" aria-label="It waits for every face, then keeps shooting">
+  <section class="s-demo" id="how" aria-label="No timer. It shoots when everyone is ready, and keeps shooting while you pose.">
     <div class="pin">
       <div class="demo">
         <div class="dtext">
-          <h2 class="dt dt1"><span>It shoots when</span><br><span>everyone's ready.</span></h2>
+          <h2 class="dt dt0"><span>No timer.</span><br><span>Just walk in.</span></h2>
+          <h2 class="dt dt1"><span>It waits until</span><br><span>everyone's ready.</span></h2>
           <h2 class="dt dt2"><span>Keep posing.</span><br><span>It keeps shooting.</span></h2>
           <div class="pile"><div class="card card0"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
     <linearGradient id="sky-dc0" x1="0" y1="0" x2="0" y2="1">
@@ -192,7 +183,7 @@
   <g class="p1">
     <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
     <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head" transform="rotate(-5 144,376)">
+    <g class="p1-head">
       <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
       <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
       <g class="p1-face">
@@ -248,7 +239,7 @@
   <g class="p1">
     <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
     <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head">
+    <g class="p1-head" transform="rotate(12 144,376)">
       <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
       <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
       <g class="p1-face">
@@ -263,7 +254,7 @@
   <g class="p2">
     <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
     <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
-    <g class="p2-head">
+    <g class="p2-head" transform="rotate(-6 300,344)">
       <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
       <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
       <g class="p2-face">
@@ -278,7 +269,7 @@
   <g class="p3">
     <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
     <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head" transform="rotate(5 456,384)">
+    <g class="p3-head" transform="rotate(-13 456,384)">
       <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
       <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
       <g class="p3-face">
@@ -304,7 +295,7 @@
   <g class="p1">
     <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
     <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head" transform="rotate(4 144,376)">
+    <g class="p1-head" transform="rotate(-9 144,376)">
       <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
       <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
       <g class="p1-face">
@@ -319,7 +310,7 @@
   <g class="p2">
     <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
     <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
-    <g class="p2-head">
+    <g class="p2-head" transform="rotate(8 300,344)">
       <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
       <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
       <g class="p2-face">
@@ -334,7 +325,7 @@
   <g class="p3">
     <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
     <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head">
+    <g class="p3-head" transform="rotate(11 456,384)">
       <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
       <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
       <g class="p3-face">
@@ -360,7 +351,7 @@
   <g class="p1">
     <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
     <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head">
+    <g class="p1-head" transform="rotate(14 144,376)">
       <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
       <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
       <g class="p1-face">
@@ -390,119 +381,7 @@
   <g class="p3">
     <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
     <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head" transform="rotate(-4 456,384)">
-      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
-      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
-      <g class="p3-face">
-        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
-          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g></svg></div><div class="card card4"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
-    <linearGradient id="sky-dc4" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
-    </linearGradient>
-    <linearGradient id="ground-dc4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
-    <filter id="sunblur-dc4" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
-  </defs>
-  <rect width="600" height="800" fill="url(#sky-dc4)"/>
-  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc4)"/>
-  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
-  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
-  <rect y="560" width="600" height="240" fill="url(#ground-dc4)"/>
-  <g class="p1">
-    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
-    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head">
-      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
-      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
-      <g class="p1-face">
-        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
-          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p2">
-    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
-    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
-    <g class="p2-head" transform="rotate(-4 300,344)">
-      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
-      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
-      <g class="p2-face">
-        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
-          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p3">
-    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
-    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head">
-      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
-      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
-      <g class="p3-face">
-        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
-          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g></svg></div><div class="card card5"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
-    <linearGradient id="sky-dc5" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
-    </linearGradient>
-    <linearGradient id="ground-dc5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
-    <filter id="sunblur-dc5" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
-  </defs>
-  <rect width="600" height="800" fill="url(#sky-dc5)"/>
-  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc5)"/>
-  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
-  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
-  <rect y="560" width="600" height="240" fill="url(#ground-dc5)"/>
-  <g class="p1">
-    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
-    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head">
-      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
-      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
-      <g class="p1-face">
-        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
-          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p2">
-    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
-    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
-    <g class="p2-head">
-      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
-      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
-      <g class="p2-face">
-        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
-          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p3">
-    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
-    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head">
+    <g class="p3-head" transform="rotate(-14 456,384)">
       <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
       <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
       <g class="p3-face">
@@ -532,7 +411,7 @@
   .sscam-zoom i.on { width:50px; height:50px; background:rgba(70,25,15,.6); color:#FFD60A; }
   .sscam .bracket { color:#FFD60A; }
   .sscam .bracket.not-ready { color:rgba(255,255,255,.85); }
-  .sscam-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+  .sscam-flash { position:absolute; inset:0; background:#000; opacity:0; pointer-events:none; }
   .sscam-thumb { position:absolute; left:42px; top:1090px; width:78px; height:78px; border-radius:14px; overflow:hidden; background:#1C1C1E; }
   .sscam-thumb-photo { position:absolute; inset:0; width:78px; height:78px; }
   .sscam-shutter { position:absolute; left:242px; top:1071px; width:116px; height:116px; }
@@ -606,11 +485,16 @@
   <g class="bracket bracket-p1" style="transform-origin:144px 376px"><path d="M103.68 313.0 L81.0 313.0 L81.0 335.68 M184.32 313.0 L207.0 313.0 L207.0 335.68 M103.68 439.0 L81.0 439.0 L81.0 416.32 M184.32 439.0 L207.0 439.0 L207.0 416.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
   <g class="bracket bracket-p2" style="transform-origin:300px 344px"><path d="M259.68 281.0 L237.0 281.0 L237.0 303.68 M340.32 281.0 L363.0 281.0 L363.0 303.68 M259.68 407.0 L237.0 407.0 L237.0 384.32 M340.32 407.0 L363.0 407.0 L363.0 384.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
   <g class="bracket bracket-p3" style="transform-origin:456px 384px"><path d="M415.68 321.0 L393.0 321.0 L393.0 343.68 M496.32 321.0 L519.0 321.0 L519.0 343.68 M415.68 447.0 L393.0 447.0 L393.0 424.32 M496.32 447.0 L519.0 447.0 L519.0 424.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
-  <g class="hint-p2" style="transform-origin:300px 407px"><circle cx="300" cy="407" r="16.5" fill="#FFD60A"/><ellipse cx="294" cy="407" rx="3.6" ry="5" fill="#000"/><ellipse cx="306" cy="407" rx="3.6" ry="5" fill="#000"/></g>
+  <g class="hint hint-eyes-p1" style="opacity:0" transform="translate(144 439)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><ellipse cx="-6" rx="3.6" ry="5" fill="#000"/><ellipse cx="6" rx="3.6" ry="5" fill="#000"/></g></g>
+  <g class="hint hint-hand-p1" style="opacity:0" transform="translate(144 439)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><g fill="#000"><rect x="-6.6" y="-7" width="2.8" height="9" rx="1.4"/><rect x="-3.4" y="-9.2" width="2.8" height="11" rx="1.4"/><rect x="-0.2" y="-8.6" width="2.8" height="10.5" rx="1.4"/><rect x="3" y="-6.6" width="2.8" height="8.5" rx="1.4"/><rect x="-6.6" y="-2" width="12.4" height="10" rx="4.2"/><rect x="4.4" y="-0.5" width="2.8" height="7.5" rx="1.4" transform="rotate(-38 5.8 3.2)"/></g></g></g>
+  <g class="hint hint-eyes-p2" style="opacity:0" transform="translate(300 407)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><ellipse cx="-6" rx="3.6" ry="5" fill="#000"/><ellipse cx="6" rx="3.6" ry="5" fill="#000"/></g></g>
+  <g class="hint hint-hand-p2" style="opacity:0" transform="translate(300 407)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><g fill="#000"><rect x="-6.6" y="-7" width="2.8" height="9" rx="1.4"/><rect x="-3.4" y="-9.2" width="2.8" height="11" rx="1.4"/><rect x="-0.2" y="-8.6" width="2.8" height="10.5" rx="1.4"/><rect x="3" y="-6.6" width="2.8" height="8.5" rx="1.4"/><rect x="-6.6" y="-2" width="12.4" height="10" rx="4.2"/><rect x="4.4" y="-0.5" width="2.8" height="7.5" rx="1.4" transform="rotate(-38 5.8 3.2)"/></g></g></g>
+  <g class="hint hint-eyes-p3" style="opacity:0" transform="translate(456 447)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><ellipse cx="-6" rx="3.6" ry="5" fill="#000"/><ellipse cx="6" rx="3.6" ry="5" fill="#000"/></g></g>
+  <g class="hint hint-hand-p3" style="opacity:0" transform="translate(456 447)"><g class="hint-in"><circle r="16.5" fill="#FFD60A"/><g fill="#000"><rect x="-6.6" y="-7" width="2.8" height="9" rx="1.4"/><rect x="-3.4" y="-9.2" width="2.8" height="11" rx="1.4"/><rect x="-0.2" y="-8.6" width="2.8" height="10.5" rx="1.4"/><rect x="3" y="-6.6" width="2.8" height="8.5" rx="1.4"/><rect x="-6.6" y="-2" width="12.4" height="10" rx="4.2"/><rect x="4.4" y="-0.5" width="2.8" height="7.5" rx="1.4" transform="rotate(-38 5.8 3.2)"/></g></g></g>
       </svg>
-      <div class="sscam-pill fw-pill fw-pill0"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Waiting for everyone</span></div><div class="sscam-pill fw-pill fw-pill1"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>1 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill2"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>2 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill3"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still</span></div><div class="sscam-pill fw-pill fw-pill4"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 1 taken</span></div><div class="sscam-pill fw-pill fw-pill5"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>2 taken</span></div><div class="sscam-pill fw-pill fw-pill6"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>3 taken</span></div><div class="sscam-pill fw-pill fw-pill7"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>4 taken</span></div><div class="sscam-pill fw-pill fw-pill8"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>5 taken</span></div><div class="sscam-pill fw-pill fw-pill9"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>6 taken</span></div>
+      <div class="sscam-pill fw-pill fw-pill0"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Get in the shot</span></div><div class="sscam-pill fw-pill fw-pill1"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Waiting for everyone</span></div><div class="sscam-pill fw-pill fw-pill2"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>0 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill3"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>1 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill4"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>2 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill5"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still</span></div><div class="sscam-pill fw-pill fw-pill6"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 1 taken</span></div><div class="sscam-pill fw-pill fw-pill7"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>0 of 3 ready · 1 taken</span></div><div class="sscam-pill fw-pill fw-pill8"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 2 taken</span></div><div class="sscam-pill fw-pill fw-pill9"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>0 of 3 ready · 2 taken</span></div><div class="sscam-pill fw-pill fw-pill10"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 3 taken</span></div><div class="sscam-pill fw-pill fw-pill11"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>0 of 3 ready · 3 taken</span></div><div class="sscam-pill fw-pill fw-pill12"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 4 taken</span></div>
       <div class="sscam-zoom"><i>.5</i><i class="on">1×</i><i>2</i><i>3</i></div>
-      <div class="sscam-flash"></div><svg class="scan" viewBox="0 0 220 220" aria-hidden="true"><path d="M64 5 L5 5 L5 64" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M156 5 L215 5 L215 64" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M215 156 L215 215 L156 215" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 156 L5 215 L64 215" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="sscam-flash"></div>
     </div>
     <div class="sscam-thumb"><svg data-layout-allow-overflow class="sscam-thumb-photo" viewBox="60 220 480 480" preserveAspectRatio="xMidYMid slice"><defs>
     <linearGradient id="sky-wt" x1="0" y1="0" x2="0" y2="1">
@@ -669,9 +553,11 @@
       </g>
     </g>
   </g></svg></div>
-    <div class="sscam-shutter">
+    <div class="tap"></div><div class="sscam-shutter">
       <svg viewBox="0 0 116 116" width="116" height="116" aria-hidden="true">
         <circle cx="58" cy="58" r="55" fill="none" stroke="#fff" stroke-width="6"/>
+        <circle class="sscam-arc" cx="58" cy="58" r="55" fill="none" stroke="#FFD60A" stroke-width="6" stroke-linecap="round" stroke-dasharray="76 270" transform="rotate(-90 58 58)" opacity="0"/>
+        <g class="sscam-idle"><circle cx="58" cy="58" r="46" fill="#fff"/><g transform="translate(39 39) scale(1.9)" opacity="0.75"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></g></g>
         <circle class="sscam-ring-fill" cx="58" cy="58" r="55" fill="none" stroke="#FFD60A" stroke-width="6" stroke-linecap="round" stroke-dasharray="345.6" stroke-dashoffset="345.6" transform="rotate(-90 58 58)"/>
       </svg>
       <div class="stop"></div>
@@ -684,68 +570,6 @@
     </div>
   </section>
 
-  <section class="s-you" aria-label="Everyone's in it. Even you.">
-    <div class="pin">
-      <div class="youimg" role="img" aria-label="The group photo, everyone smiling"><svg data-layout-allow-overflow class="" viewBox="0 132 600 337.5" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
-    <linearGradient id="sky-fin" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
-    </linearGradient>
-    <linearGradient id="ground-fin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
-    <filter id="sunblur-fin" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
-  </defs>
-  <rect width="600" height="800" fill="url(#sky-fin)"/>
-  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-fin)"/>
-  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
-  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
-  <rect y="560" width="600" height="240" fill="url(#ground-fin)"/>
-  <g class="p1">
-    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
-    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
-    <g class="p1-head">
-      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
-      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
-      <g class="p1-face">
-        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
-          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p2">
-    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
-    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
-    <g class="p2-head">
-      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
-      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
-      <g class="p2-face">
-        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
-          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-  <g class="p3">
-    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
-    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
-    <g class="p3-head">
-      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
-      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
-      <g class="p3-face">
-        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
-          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
-        </g>
-        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g></svg><div class="yshade"></div></div>
-      <h2 class="yt"><span>Everyone's in it.</span><br><span>Even</span> <span class="under"><i></i>you.</span></h2>
-    </div>
-  </section>
 </div>
 
 <section class="facts" id="facts">
@@ -847,69 +671,130 @@
     if (st.progress > 0 || scrollY > st.start) tl.progress(1);
   };
 
-  // The live camera: the bracket scans each face, the shot, then the burst.
-  autoplay('.s-demo', (tl) => {
-    const vf = (s) => $('.s-demo .sscam-vf ' + s);
-    const pills = $$('.s-demo .sscam-pill');
-    const swap = (from, to, t) => {
-      tl.to(pills[from], { y: -8, opacity: 0, duration: 0.1 }, t);
-      tl.fromTo(pills[to], { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
-    };
-    tl.set(pills.slice(1), { opacity: 0 }, 0);
-    // Nobody is ready yet: heads turned away, brackets white, a hint on the middle face.
-    const away = { p1: [-16, -11, '144 376'], p2: [15, 9, '300 344'], p3: [14, 12, '456 384'] };
-    Object.entries(away).forEach(([p, [fx, rot, o]]) => {
-      tl.set(vf('.' + p + '-face'), { x: fx }, 0);
-      tl.set(vf('.' + p + '-head'), { rotation: rot, svgOrigin: o }, 0);
-      tl.set(vf('.bracket-' + p), { color: 'rgba(255,255,255,0.85)', opacity: 1 }, 0);
-    });
-    tl.set(vf('.hint-p2'), { scale: 1, svgOrigin: '300 407' }, 0);
-    tl.set($$('.dt2 span'), { opacity: 0 }, 0);
-    tl.fromTo('.phonebox', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0);
-    tl.fromTo($$('.dt1 span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', stagger: 0.12 }, 0.15);
-    tl.fromTo('.scan', { x: 0, y: 0, scale: 1.6, opacity: 0 }, { scale: 1.3, opacity: 1, duration: 0.3 }, 0.35);
-    [['p1', 144, 376], ['p2', 300, 344], ['p3', 456, 384]].forEach(([p, fx, fy], i) => {
-      const t = 0.75 + i * 0.7;
-      tl.to('.scan', { x: 18 + fx - 300, y: 233 + fy - 16.5 - 383, scale: 0.57, duration: 0.35, ease: 'power3.inOut' }, t);
-      // the camera reads them; they turn to look into it
-      tl.to(vf('.' + p + '-face'), { x: 0, duration: 0.35, ease: 'power2.inOut' }, t + 0.3);
-      tl.to(vf('.' + p + '-head'), { rotation: 0, svgOrigin: fx + ' ' + fy, duration: 0.35, ease: 'power2.inOut' }, t + 0.3);
-      if (p === 'p2') tl.to(vf('.hint-p2'), { scale: 0, svgOrigin: '300 407', duration: 0.2, ease: 'power2.in' }, t + 0.3);
-      tl.fromTo(vf('.bracket-' + p), { color: 'rgba(255,255,255,0.85)', scale: 1.25, svgOrigin: fx + ' ' + fy }, { color: '#FFD60A', scale: 1, svgOrigin: fx + ' ' + fy, duration: 0.25, ease: 'power3.out' }, t + 0.62);
-      swap(i, i + 1, t + 0.62);
-    });
-    tl.to('.scan', { opacity: 0, scale: 0.45, duration: 0.15 }, 3.0);
-    tl.fromTo('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6 }, { strokeDashoffset: 0, duration: 0.8, ease: 'power1.inOut' }, 3.05);
-    const shoot = (t, big) => {
-      tl.fromTo('.s-demo .sscam-flash', { opacity: 0 }, { opacity: big ? 0.95 : 0.7, duration: 0.03 }, t);
-      tl.to('.s-demo .sscam-flash', { opacity: 0, duration: big ? 0.25 : 0.15, ease: 'power2.out' }, t + 0.04);
-      tl.fromTo('.s-demo .sscam-shutter .stop', { scale: 1 }, { scale: 0.84, duration: 0.05 }, t);
-      tl.to('.s-demo .sscam-shutter .stop', { scale: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
-    };
-    shoot(3.9, true);
-    tl.fromTo('.s-demo .flash', { opacity: 0 }, { opacity: 0.3, duration: 0.03 }, 3.90);
-    tl.to('.s-demo .flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 3.95);
-    tl.to('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6, duration: 0.2 }, 4.00);
-    swap(3, 4, 4.0);
-    tl.to($$('.dt1 span'), { y: -40, opacity: 0, duration: 0.2, stagger: 0.04 }, 4.20);
-    tl.fromTo($$('.dt2 span'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.1 }, 4.35);
-    const rots = [-7, -2, 3, -4, 5, 1];
-    $$('.card').forEach((c, i) => { c.style.left = (i * 16) + '%'; c.style.top = (i % 2 ? 14 : 0) + 'px'; });
-    [3.9, 4.75, 5.1, 5.4, 5.65, 5.85].forEach((t, i) => {
-      if (i) { shoot(t, false); swap(3 + i, 4 + i, t + 0.04); }
-      tl.fromTo('.card' + i, { x: 260, y: -40, scale: 0.3, rotation: 0, opacity: 0 }, { x: 0, y: 0, scale: 1, rotation: rots[i], opacity: 1, duration: 0.35, ease: 'power3.out' }, t + 0.06);
-    });
-    tl.to({}, { duration: 0.7 });
-  });
+  const placePile = () => {
+    const pile = $('.pile'), cards = $$('.card');
+    if (!pile || !cards.length) return;
+    const step = Math.max(0, (pile.clientWidth - cards[0].offsetWidth) / (cards.length - 1));
+    cards.forEach((c, i) => { c.style.left = (i * step) + 'px'; c.style.top = (i % 2 ? 14 : 0) + 'px'; });
+  };
+  placePile();
+  addEventListener('resize', placePile);
 
-  // Even you: the photo opens to fill the screen.
-  autoplay('.s-you', (tl) => {
-    tl.fromTo('.youimg', { clipPath: 'inset(18% 36% 18% 36% round 40px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1, ease: 'power2.inOut' }, 0);
-    tl.fromTo('.youimg svg', { scale: 1.2 }, { scale: 1, duration: 1.2, ease: 'power2.out' }, 0);
-    tl.fromTo('.yshade', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.6);
-    tl.fromTo($$('.yt > span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.15 }, 1.0);
-    tl.fromTo('.yt .under i', { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }, 1.6);
-    tl.to({}, { duration: 0.6 });
+  // The live camera: the same choreography as the promo video and the same states as the app
+  // (generated from camchor.py): tap, everyone walks in, it waits until each person is ready,
+  // then a new photo every time the group settles into a new pose.
+  autoplay('.s-demo', (tl) => {
+    const Q = (s) => $('.s-demo .sscam ' + s);
+    const QA = (s) => $$('.s-demo .sscam ' + s);
+
+      const PILLS = ['Get in the shot', 'Waiting for everyone', '0 of 3 ready', '1 of 3 ready', '2 of 3 ready', 'Hold still', 'Hold still · 1 taken', '0 of 3 ready · 1 taken', 'Hold still · 2 taken', '0 of 3 ready · 2 taken', 'Hold still · 3 taken', '0 of 3 ready · 3 taken', 'Hold still · 4 taken'];
+      const ORIG = { p1: '144 376', p2: '300 344', p3: '456 384' };
+      const ALSO = () => [];
+      const grp = (cls) => [Q('.sscam-vf .' + cls)].concat(ALSO().map((r) => r.querySelector('.' + cls))).filter(Boolean);
+      const pillEls = QA('.sscam-pill');
+      let pillCur = null;
+      const pill = (name, t) => {
+        const el = pillEls[PILLS.indexOf(name)];
+        if (pillCur) tl.to(pillCur, { y: -8, opacity: 0, duration: 0.12, ease: 'power2.in' }, t);
+        tl.fromTo(el, { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, ease: 'power3.out' }, t + (pillCur ? 0.06 : 0));
+        pillCur = el;
+      };
+      const hint = (p, kind, on, t) => tl.to(Q('.hint-' + kind + '-' + p), { opacity: on ? 1 : 0, duration: on ? 0.2 : 0.15, ease: on ? 'back.out(2)' : 'power2.in' }, t);
+      const bracket = (p, ready, t) => tl.to(Q('.sscam-vf .bracket-' + p), { color: ready ? '#FFD60A' : 'rgba(255,255,255,0.85)', duration: 0.2 }, t);
+      const arc = (on, t) => tl.to(Q('.sscam-arc'), { opacity: on ? 1 : 0, duration: 0.15 }, t);
+      const head = (p, deg, t, d = 0.35) => tl.to(grp(p + '-head'), { rotation: deg, svgOrigin: ORIG[p], duration: d, ease: 'power2.inOut' }, t);
+      const face = (p, x, t, d = 0.35) => tl.to(grp(p + '-face'), { x: x, duration: d, ease: 'power2.inOut' }, t);
+      const shoot = (t) => {
+        tl.fromTo(Q('.sscam-flash'), { opacity: 0 }, { opacity: 1, duration: 0.05, ease: 'none' }, t);
+        tl.to(Q('.sscam-flash'), { opacity: 0, duration: 0.25, ease: 'power2.out' }, t + 0.1);
+        tl.to(Q('.sscam-ring-fill'), { strokeDashoffset: 345.6, duration: 0.2, ease: 'power2.out' }, t + 0.05);
+        tl.fromTo(Q('.sscam-thumb'), { scale: 1 }, { scale: 1.1, duration: 0.08, ease: 'power2.out' }, t + 0.3);
+        tl.to(Q('.sscam-thumb'), { scale: 1, duration: 0.2, ease: 'power3.out' }, t + 0.38);
+      };
+      const hold = (t) => { arc(false, t); tl.fromTo(Q('.sscam-ring-fill'), { strokeDashoffset: 345.6 }, { strokeDashoffset: 0, duration: 0.7, ease: 'none' }, t); };
+
+      tl.set(pillEls, { opacity: 0 }, 0);
+      tl.set(QA('.hint'), { opacity: 0 }, 0);
+      tl.set(Q('.sscam-flash'), { opacity: 0 }, 0);
+      ['p1', 'p2', 'p3'].forEach((p) => tl.set(Q('.sscam-vf .bracket-' + p), { color: 'rgba(255,255,255,0.85)', opacity: 0 }, 0));
+      tl.set(grp('p1-face'), { x: -16 }, 0); tl.set(grp('p1-head'), { rotation: -11, svgOrigin: ORIG.p1 }, 0);
+      tl.set(grp('p2-face'), { x: 15 }, 0); tl.set(grp('p2-head'), { rotation: 9, svgOrigin: ORIG.p2 }, 0);
+      tl.set(grp('p3-face'), { x: 14 }, 0); tl.set(grp('p3-head'), { rotation: 12, svgOrigin: ORIG.p3 }, 0);
+      tl.set(Q('.sscam-idle'), { scale: 1, svgOrigin: '58 58', opacity: 1 }, 0);
+      tl.set(Q('.sscam-shutter .stop'), { scale: 0, opacity: 0 }, 0);
+      tl.set(Q('.sscam-arc'), { opacity: 0 }, 0);
+      [['p1', -380, 0], ['p3', 380, 0], ['p2', 0, 640]].forEach(([p, x, y]) => tl.set(grp(p), { x: x, y: y }, 0));
+      tl.fromTo(Q('.sscam-arc'), { rotation: 0 }, { rotation: 360, svgOrigin: '58 58', duration: 1.1, ease: 'none', repeat: 11 }, 1.15);
+
+      tl.set($$('.dt1 span, .dt2 span'), { opacity: 0 }, 0);
+      tl.fromTo('.phonebox', { y: -160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: 'back.out(1.4)' }, 0);
+      tl.fromTo($$('.dt0 span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out', stagger: 0.1 }, 0.35);
+      tl.fromTo('.s-demo .tap', { scale: 0.6, opacity: 0.9 }, { scale: 1.6, opacity: 0, duration: 0.6, ease: 'power2.out' }, 0.95);
+
+      // The shutter is pressed: the disc becomes the stop square and the arc starts circling.
+      tl.fromTo(Q('.sscam-idle'), { scale: 1 }, { scale: 0.86, svgOrigin: '58 58', duration: 0.08, ease: 'power2.in' }, 0.95);
+      tl.to(Q('.sscam-idle'), { scale: 0.3, opacity: 0, svgOrigin: '58 58', duration: 0.25, ease: 'power2.in' }, 1.05);
+      tl.fromTo(Q('.sscam-shutter .stop'), { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.8)' }, 1.1);
+      tl.to(Q('.sscam-arc'), { opacity: 1, duration: 0.2 }, 1.15);
+      pill('Get in the shot', 1.15);
+      tl.to(grp('p1'), { x: 0, y: 0, duration: 0.9, ease: 'power2.out' }, 1.35);
+      tl.to(Q('.sscam-vf .bracket-p1'), { opacity: 1, duration: 0.2 }, 1.8);
+      hint('p1', 'hand', true, 1.85); hint('p1', 'hand', false, 2.35); hint('p1', 'eyes', true, 2.45);
+      tl.to(grp('p3'), { x: 0, y: 0, duration: 0.9, ease: 'power2.out' }, 1.55);
+      tl.to(Q('.sscam-vf .bracket-p3'), { opacity: 1, duration: 0.2 }, 2.0);
+      hint('p3', 'hand', true, 2.05); hint('p3', 'hand', false, 2.55); hint('p3', 'eyes', true, 2.65);
+      tl.to(grp('p2'), { x: 0, y: 0, duration: 0.9, ease: 'power2.out' }, 1.75);
+      tl.to(Q('.sscam-vf .bracket-p2'), { opacity: 1, duration: 0.2 }, 2.2);
+      hint('p2', 'hand', true, 2.25); hint('p2', 'hand', false, 2.75); hint('p2', 'eyes', true, 2.85);
+      pill('Waiting for everyone', 1.9);
+      pill('0 of 3 ready', 3.7);
+
+      tl.to($$('.dt0 span'), { y: -40, opacity: 0, duration: 0.28, ease: 'power2.in', stagger: 0.03 }, 4.35);
+      tl.fromTo($$('.dt1 span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: 'power3.out', stagger: 0.09 }, 4.55);
+      head('p1', 0, 5.05); face('p1', 0, 5.05);
+      hint('p1', 'eyes', false, 5.35); bracket('p1', true, 5.35);
+      pill('1 of 3 ready', 5.37);
+      head('p2', 0, 5.65); face('p2', 0, 5.65);
+      hint('p2', 'eyes', false, 5.95); bracket('p2', true, 5.95);
+      pill('2 of 3 ready', 5.97);
+      head('p3', 0, 6.25); face('p3', 0, 6.25);
+      hint('p3', 'eyes', false, 6.55); bracket('p3', true, 6.55);
+      pill('Hold still', 6.57);
+      hold(6.6);
+      shoot(7.3); arc(true, 7.4); pill('Hold still · 1 taken', 7.35);
+      head('p1', 12, 7.65, 0.45); bracket('p1', false, 7.7); hint('p1', 'hand', true, 7.73);
+      head('p2', -6, 7.65, 0.45); bracket('p2', false, 7.7); hint('p2', 'hand', true, 7.73);
+      head('p3', -13, 7.65, 0.45); bracket('p3', false, 7.7); hint('p3', 'hand', true, 7.73);
+      pill('0 of 3 ready · 1 taken', 7.75);
+      hint('p1', 'hand', false, 8.25); bracket('p1', true, 8.27);
+      hint('p2', 'hand', false, 8.25); bracket('p2', true, 8.27);
+      hint('p3', 'hand', false, 8.25); bracket('p3', true, 8.27);
+      pill('Hold still · 1 taken', 8.27); hold(8.27);
+      shoot(8.97); arc(true, 9.07); pill('Hold still · 2 taken', 9.02);
+      head('p1', -9, 9.35, 0.45); bracket('p1', false, 9.4); hint('p1', 'hand', true, 9.43);
+      head('p2', 8, 9.35, 0.45); bracket('p2', false, 9.4); hint('p2', 'hand', true, 9.43);
+      head('p3', 11, 9.35, 0.45); bracket('p3', false, 9.4); hint('p3', 'hand', true, 9.43);
+      pill('0 of 3 ready · 2 taken', 9.45);
+      hint('p1', 'hand', false, 9.95); bracket('p1', true, 9.97);
+      hint('p2', 'hand', false, 9.95); bracket('p2', true, 9.97);
+      hint('p3', 'hand', false, 9.95); bracket('p3', true, 9.97);
+      pill('Hold still · 2 taken', 9.97); hold(9.97);
+      shoot(10.67); arc(true, 10.77); pill('Hold still · 3 taken', 10.72);
+      head('p1', 14, 11.05, 0.45); bracket('p1', false, 11.1); hint('p1', 'hand', true, 11.13);
+      head('p2', 0, 11.05, 0.45); bracket('p2', false, 11.1); hint('p2', 'hand', true, 11.13);
+      head('p3', -14, 11.05, 0.45); bracket('p3', false, 11.1); hint('p3', 'hand', true, 11.13);
+      pill('0 of 3 ready · 3 taken', 11.15);
+      hint('p1', 'hand', false, 11.65); bracket('p1', true, 11.67);
+      hint('p2', 'hand', false, 11.65); bracket('p2', true, 11.67);
+      hint('p3', 'hand', false, 11.65); bracket('p3', true, 11.67);
+      pill('Hold still · 3 taken', 11.67); hold(11.67);
+      shoot(12.37); arc(true, 12.47); pill('Hold still · 4 taken', 12.42);
+
+      tl.to($$('.dt1 span'), { y: -40, opacity: 0, duration: 0.28, ease: 'power2.in', stagger: 0.03 }, 7.55);
+      tl.fromTo($$('.dt2 span'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out', stagger: 0.06 }, 7.75);
+      const rots = [-7, -2, 3, -4];
+      [7.3, 8.97, 10.67, 12.37].forEach((t, i) => tl.fromTo('.card' + i, { x: 220, y: -40, scale: 0.3, rotation: 0, opacity: 0 }, { x: 0, y: 0, scale: 1, rotation: rots[i], opacity: 1, duration: 0.5, ease: 'power3.out' }, t + 0.12));
+      tl.to({}, { duration: 0.6 });
   });
 
   // Everything else eases in as it arrives.
