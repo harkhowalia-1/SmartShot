@@ -1,8 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <g fill="none" stroke="#FFD60A" stroke-width="46" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M178 318 L178 178 L318 178"/>
-    <path d="M706 178 L846 178 L846 318"/>
-    <path d="M178 706 L178 846 L318 846"/>
-    <path d="M846 706 L846 846 L706 846"/>
+  <!-- Each bracket is an outlined shape (not an open stroke) so Icon Composer's layer fill keeps it a thin L. -->
+  <g fill="#FFD60A">
+    <path d="M155 318 L155 178 A23 23 0 0 1 178 155 L318 155 A23 23 0 0 1 318 201 L201 201 L201 318 A23 23 0 0 1 155 318 Z"/>
+    <path d="M869 318 L869 178 A23 23 0 0 0 846 155 L706 155 A23 23 0 0 0 706 201 L823 201 L823 318 A23 23 0 0 0 869 318 Z"/>
+    <path d="M155 706 L155 846 A23 23 0 0 0 178 869 L318 869 A23 23 0 0 0 318 823 L201 823 L201 706 A23 23 0 0 0 155 706 Z"/>
+    <path d="M869 706 L869 846 A23 23 0 0 1 846 869 L706 869 A23 23 0 0 1 706 823 L823 823 L823 706 A23 23 0 0 1 869 706 Z"/>
   </g>
 </svg>

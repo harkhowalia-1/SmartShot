@@ -29,3 +29,8 @@ Config/Local.xcconfig
 
 # Local tooling
 .claude/
+
+# HyperFrames skills and promo video projects
+.agents/
+videos/
+skills-lock.json
