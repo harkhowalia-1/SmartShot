@@ -11,6 +11,7 @@
 		140F0A46E56FC6750CB7E079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */; };
 		1531E2C0BA7A4E0EB315C21B /* MediaSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A5200B2AD672FD5DDCF8 /* MediaSaver.swift */; };
 		170A17B2B08AC7F06C2D50AA /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1284B93787815392B88C3C /* Controls.swift */; };
+		170A28016BC8DC339E8D3D4D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9E246682A26688CF8D834247 /* PrivacyInfo.xcprivacy */; };
 		31B28A90EA7F636CC8D00FA0 /* SmartShotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C892B95C4110433B448A3A7 /* SmartShotApp.swift */; };
 		4839860FBC74537D85BA5918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */; };
 		4BED4586788A9F1A55987E36 /* Viewfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BECE88DCE6FEF1F6F9515 /* Viewfinder.swift */; };
@@ -25,6 +26,7 @@
 		895A042513F498B93C26F07A /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1284B93787815392B88C3C /* Controls.swift */; };
 		8DA150DC9CEAFF4D64488FA4 /* PhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DEA4E95245E2E03BFE221 /* PhotoEditor.swift */; };
 		9A912F3B68A27D199C7DE228 /* PhotoPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */; };
+		9D662B4714B79486E4194C09 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9E246682A26688CF8D834247 /* PrivacyInfo.xcprivacy */; };
 		AB53F81B4D179D34329BC460 /* PhotoPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */; };
 		BDC4A94FB5604B84773791FB /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273362AE0CBAE34ACF1EAD4B /* PhotoLibrary.swift */; };
 		BF24FCEC8106170537D2B7E7 /* ReadinessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */; };
@@ -45,6 +47,7 @@
 		7C174442A4C0E0913A21F848 /* SmartShot-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "SmartShot-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C892B95C4110433B448A3A7 /* SmartShotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShotApp.swift; sourceTree = "<group>"; };
 		91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPager.swift; sourceTree = "<group>"; };
+		9E246682A26688CF8D834247 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadinessDetector.swift; sourceTree = "<group>"; };
 		B46B0379E19E18DAD8CC83BD /* DemoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			children = (
 				CA19ECECF967B7F313DD7121 /* AppIcon.icon */,
 				AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */,
+				9E246682A26688CF8D834247 /* PrivacyInfo.xcprivacy */,
 				DD560AD8AB924C15251978FF /* App */,
 				895F9F901DC58EEC21463091 /* Camera */,
 				AB6CD398B6FCBD7F5BB392D9 /* Demo */,
@@ -236,6 +240,7 @@
 			files = (
 				E2CE62642DEF674615A8C35D /* AppIcon.icon in Resources */,
 				140F0A46E56FC6750CB7E079 /* Assets.xcassets in Resources */,
+				170A28016BC8DC339E8D3D4D /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +250,7 @@
 			files = (
 				DBC64ED846861869B7A654E4 /* AppIcon.icon in Resources */,
 				4839860FBC74537D85BA5918 /* Assets.xcassets in Resources */,
+				9D662B4714B79486E4194C09 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +330,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot.mac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot;
 				PRODUCT_NAME = SmartShot;
 				SDKROOT = macosx;
 			};
@@ -384,7 +390,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -422,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot.mac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot;
 				PRODUCT_NAME = SmartShot;
 				SDKROOT = macosx;
 			};
@@ -464,7 +470,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
