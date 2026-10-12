@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <clipPath id="lens"><circle cx="512" cy="512" r="262"/></clipPath>
+  </defs>
+  <g clip-path="url(#lens)">
+    <!-- back person -->
+    <circle cx="430" cy="448" r="66" fill="#FFFFFF" fill-opacity="0.72"/>
+    <path d="M290 820 L290 650 C290 572 352 528 430 528 C508 528 570 572 570 650 L570 820 Z" fill="#FFFFFF" fill-opacity="0.72"/>
+    <!-- front person -->
+    <circle cx="590" cy="492" r="78" fill="#FFFFFF"/>
+    <path d="M432 820 L432 700 C432 616 502 582 590 582 C678 582 748 616 748 700 L748 820 Z" fill="#FFFFFF"/>
+  </g>
+</svg>

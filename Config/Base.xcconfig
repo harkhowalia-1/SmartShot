@@ -1,0 +1,3 @@
+// Shared build settings. Your Apple team ID goes in Config/Local.xcconfig (not committed):
+//   DEVELOPMENT_TEAM = YOURTEAMID
+#include? "Local.xcconfig"

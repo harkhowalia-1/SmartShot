@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0850825DA95AC1236CDEE1F9 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68FE6453B59530446F4E8D /* CameraModel.swift */; };
+		140F0A46E56FC6750CB7E079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */; };
+		1531E2C0BA7A4E0EB315C21B /* MediaSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A5200B2AD672FD5DDCF8 /* MediaSaver.swift */; };
+		170A17B2B08AC7F06C2D50AA /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1284B93787815392B88C3C /* Controls.swift */; };
+		31B28A90EA7F636CC8D00FA0 /* SmartShotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C892B95C4110433B448A3A7 /* SmartShotApp.swift */; };
+		4839860FBC74537D85BA5918 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */; };
+		4BED4586788A9F1A55987E36 /* Viewfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BECE88DCE6FEF1F6F9515 /* Viewfinder.swift */; };
+		68121EA6EA9AC9CF3BDE65E1 /* SmartShotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C892B95C4110433B448A3A7 /* SmartShotApp.swift */; };
+		70065F5FD4AFD614FB2440B0 /* PhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DEA4E95245E2E03BFE221 /* PhotoEditor.swift */; };
+		7475693FB16518A790B82CB7 /* ReadinessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */; };
+		766F0C44FF371CA84A43CC68 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46B0379E19E18DAD8CC83BD /* DemoScene.swift */; };
+		796E209EA3C2531074274C02 /* MediaSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B6A5200B2AD672FD5DDCF8 /* MediaSaver.swift */; };
+		7A15401E93A14CB4F2A940FA /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68FE6453B59530446F4E8D /* CameraModel.swift */; };
+		7E96C91847B8ECB87C45A5C7 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA5C21DFB8D71175EDE0A74 /* CameraView.swift */; };
+		801B9537877426DDF0B196A4 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273362AE0CBAE34ACF1EAD4B /* PhotoLibrary.swift */; };
+		895A042513F498B93C26F07A /* Controls.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1284B93787815392B88C3C /* Controls.swift */; };
+		8DA150DC9CEAFF4D64488FA4 /* PhotoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4DEA4E95245E2E03BFE221 /* PhotoEditor.swift */; };
+		9A912F3B68A27D199C7DE228 /* PhotoPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */; };
+		AB53F81B4D179D34329BC460 /* PhotoPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */; };
+		BDC4A94FB5604B84773791FB /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273362AE0CBAE34ACF1EAD4B /* PhotoLibrary.swift */; };
+		BF24FCEC8106170537D2B7E7 /* ReadinessDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */; };
+		C7C9C9F6320BFBB1E01AE398 /* PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29F67C89A76F1B678C085BC /* PhotoViewer.swift */; };
+		DBC64ED846861869B7A654E4 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CA19ECECF967B7F313DD7121 /* AppIcon.icon */; };
+		DD57F45BFEBB4F2139388099 /* PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29F67C89A76F1B678C085BC /* PhotoViewer.swift */; };
+		E25DA47CD812C56E26223820 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA5C21DFB8D71175EDE0A74 /* CameraView.swift */; };
+		E2CE62642DEF674615A8C35D /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = CA19ECECF967B7F313DD7121 /* AppIcon.icon */; };
+		E935D70097312AE77BEBFFAD /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46B0379E19E18DAD8CC83BD /* DemoScene.swift */; };
+		F4463D8EBA998C736F990AD0 /* Viewfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0BECE88DCE6FEF1F6F9515 /* Viewfinder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17B6A5200B2AD672FD5DDCF8 /* MediaSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSaver.swift; sourceTree = "<group>"; };
+		273362AE0CBAE34ACF1EAD4B /* PhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
+		3FA5C21DFB8D71175EDE0A74 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4A4DEA4E95245E2E03BFE221 /* PhotoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditor.swift; sourceTree = "<group>"; };
+		7C174442A4C0E0913A21F848 /* SmartShot-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "SmartShot-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C892B95C4110433B448A3A7 /* SmartShotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartShotApp.swift; sourceTree = "<group>"; };
+		91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPager.swift; sourceTree = "<group>"; };
+		AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadinessDetector.swift; sourceTree = "<group>"; };
+		B46B0379E19E18DAD8CC83BD /* DemoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
+		BA68FE6453B59530446F4E8D /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		CA19ECECF967B7F313DD7121 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		CB0BECE88DCE6FEF1F6F9515 /* Viewfinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewfinder.swift; sourceTree = "<group>"; };
+		E29F67C89A76F1B678C085BC /* PhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewer.swift; sourceTree = "<group>"; };
+		ED1284B93787815392B88C3C /* Controls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controls.swift; sourceTree = "<group>"; };
+		F201007B7756EF779A177BE6 /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		F5C041D4F4D7381AD7B20A09 /* SmartShot-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SmartShot-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		6267C99783F1B0B961BA8DB9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3FA5C21DFB8D71175EDE0A74 /* CameraView.swift */,
+				ED1284B93787815392B88C3C /* Controls.swift */,
+				CB0BECE88DCE6FEF1F6F9515 /* Viewfinder.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		635A07E89EF3C83831374F9C = {
+			isa = PBXGroup;
+			children = (
+				E92EDEA8E743165D7433B420 /* Config */,
+				9FB19ACFE41F01C0ED759110 /* Shared */,
+				9368DAC11D9D5B5086B88E23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		895F9F901DC58EEC21463091 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				BA68FE6453B59530446F4E8D /* CameraModel.swift */,
+				17B6A5200B2AD672FD5DDCF8 /* MediaSaver.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		9368DAC11D9D5B5086B88E23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C174442A4C0E0913A21F848 /* SmartShot-iOS.app */,
+				F5C041D4F4D7381AD7B20A09 /* SmartShot-macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9FB19ACFE41F01C0ED759110 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA19ECECF967B7F313DD7121 /* AppIcon.icon */,
+				AC643C3D8AD46AC03F40DA5C /* Assets.xcassets */,
+				DD560AD8AB924C15251978FF /* App */,
+				895F9F901DC58EEC21463091 /* Camera */,
+				AB6CD398B6FCBD7F5BB392D9 /* Demo */,
+				F172FAFADA7B6CAD8DFC685B /* SmartShot */,
+				A61ECEB58C19022A6AD60DF0 /* Viewer */,
+				6267C99783F1B0B961BA8DB9 /* Views */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A61ECEB58C19022A6AD60DF0 /* Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				4A4DEA4E95245E2E03BFE221 /* PhotoEditor.swift */,
+				273362AE0CBAE34ACF1EAD4B /* PhotoLibrary.swift */,
+				91E9CF6434051B1DAF88BB66 /* PhotoPager.swift */,
+				E29F67C89A76F1B678C085BC /* PhotoViewer.swift */,
+			);
+			path = Viewer;
+			sourceTree = "<group>";
+		};
+		AB6CD398B6FCBD7F5BB392D9 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B46B0379E19E18DAD8CC83BD /* DemoScene.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		DD560AD8AB924C15251978FF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7C892B95C4110433B448A3A7 /* SmartShotApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E92EDEA8E743165D7433B420 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F201007B7756EF779A177BE6 /* Base.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F172FAFADA7B6CAD8DFC685B /* SmartShot */ = {
+			isa = PBXGroup;
+			children = (
+				B2AB743F4E09439CDF4A0D45 /* ReadinessDetector.swift */,
+			);
+			path = SmartShot;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E7057BE7364045EE40747F6 /* SmartShot-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D342042E675E9BFB5712200A /* Build configuration list for PBXNativeTarget "SmartShot-macOS" */;
+			buildPhases = (
+				3E61801BCF8854BFD8AFE05A /* Sources */,
+				8C74672651CC02C8007E41F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartShot-macOS";
+			packageProductDependencies = (
+			);
+			productName = "SmartShot-macOS";
+			productReference = F5C041D4F4D7381AD7B20A09 /* SmartShot-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8785664A54D1B14490F003C6 /* SmartShot-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFC04B80880ED288627EE4B0 /* Build configuration list for PBXNativeTarget "SmartShot-iOS" */;
+			buildPhases = (
+				E36771992D76FAEB63B97130 /* Sources */,
+				66AE9A7F38A883CA557C424F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SmartShot-iOS";
+			packageProductDependencies = (
+			);
+			productName = "SmartShot-iOS";
+			productReference = 7C174442A4C0E0913A21F848 /* SmartShot-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDD4BEE0B5D6A2BE686F7741 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					7E7057BE7364045EE40747F6 = {
+						ProvisioningStyle = Automatic;
+					};
+					8785664A54D1B14490F003C6 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E8BA76C8E4C8483211EA0BC8 /* Build configuration list for PBXProject "SmartShot" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 635A07E89EF3C83831374F9C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9368DAC11D9D5B5086B88E23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8785664A54D1B14490F003C6 /* SmartShot-iOS */,
+				7E7057BE7364045EE40747F6 /* SmartShot-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66AE9A7F38A883CA557C424F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2CE62642DEF674615A8C35D /* AppIcon.icon in Resources */,
+				140F0A46E56FC6750CB7E079 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C74672651CC02C8007E41F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC64ED846861869B7A654E4 /* AppIcon.icon in Resources */,
+				4839860FBC74537D85BA5918 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E61801BCF8854BFD8AFE05A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A15401E93A14CB4F2A940FA /* CameraModel.swift in Sources */,
+				7E96C91847B8ECB87C45A5C7 /* CameraView.swift in Sources */,
+				895A042513F498B93C26F07A /* Controls.swift in Sources */,
+				766F0C44FF371CA84A43CC68 /* DemoScene.swift in Sources */,
+				1531E2C0BA7A4E0EB315C21B /* MediaSaver.swift in Sources */,
+				70065F5FD4AFD614FB2440B0 /* PhotoEditor.swift in Sources */,
+				BDC4A94FB5604B84773791FB /* PhotoLibrary.swift in Sources */,
+				9A912F3B68A27D199C7DE228 /* PhotoPager.swift in Sources */,
+				DD57F45BFEBB4F2139388099 /* PhotoViewer.swift in Sources */,
+				BF24FCEC8106170537D2B7E7 /* ReadinessDetector.swift in Sources */,
+				68121EA6EA9AC9CF3BDE65E1 /* SmartShotApp.swift in Sources */,
+				4BED4586788A9F1A55987E36 /* Viewfinder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E36771992D76FAEB63B97130 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0850825DA95AC1236CDEE1F9 /* CameraModel.swift in Sources */,
+				E25DA47CD812C56E26223820 /* CameraView.swift in Sources */,
+				170A17B2B08AC7F06C2D50AA /* Controls.swift in Sources */,
+				E935D70097312AE77BEBFFAD /* DemoScene.swift in Sources */,
+				796E209EA3C2531074274C02 /* MediaSaver.swift in Sources */,
+				8DA150DC9CEAFF4D64488FA4 /* PhotoEditor.swift in Sources */,
+				801B9537877426DDF0B196A4 /* PhotoLibrary.swift in Sources */,
+				AB53F81B4D179D34329BC460 /* PhotoPager.swift in Sources */,
+				C7C9C9F6320BFBB1E01AE398 /* PhotoViewer.swift in Sources */,
+				7475693FB16518A790B82CB7 /* ReadinessDetector.swift in Sources */,
+				31B28A90EA7F636CC8D00FA0 /* SmartShotApp.swift in Sources */,
+				F4463D8EBA998C736F990AD0 /* Viewfinder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		27AC23F81A7CCF68ADF6065C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Resources/iOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot;
+				PRODUCT_NAME = SmartShot;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5A9692895142CD5C6C90E6C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Resources/macOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot.mac;
+				PRODUCT_NAME = SmartShot;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7085970CEBC748E690A252F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Resources/iOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot;
+				PRODUCT_NAME = SmartShot;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		939F8B34AEE376862CC71643 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F201007B7756EF779A177BE6 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AE012DA9C011E5624AADA3D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Resources/macOS-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.harkhowalia.smartshot.mac;
+				PRODUCT_NAME = SmartShot;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D52F8D3CA588460F0C0BB050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F201007B7756EF779A177BE6 /* Base.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D342042E675E9BFB5712200A /* Build configuration list for PBXNativeTarget "SmartShot-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A9692895142CD5C6C90E6C4 /* Debug */,
+				AE012DA9C011E5624AADA3D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E8BA76C8E4C8483211EA0BC8 /* Build configuration list for PBXProject "SmartShot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D52F8D3CA588460F0C0BB050 /* Debug */,
+				939F8B34AEE376862CC71643 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EFC04B80880ED288627EE4B0 /* Build configuration list for PBXNativeTarget "SmartShot-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7085970CEBC748E690A252F1 /* Debug */,
+				27AC23F81A7CCF68ADF6065C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDD4BEE0B5D6A2BE686F7741 /* Project object */;
+}
