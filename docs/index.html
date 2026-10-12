@@ -12,156 +12,135 @@
 <meta property="og:image" content="images/hero.png">
 <style>
   :root {
-    --bg: #ffffff;
-    --bg-alt: #f5f5f7;
-    --tile: #f5f5f7;
-    --text: #1d1d1f;
-    --muted: #6e6e73;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --yellow: #ffd60a;
-    --nav: rgba(255, 255, 255, 0.72);
-    --line: rgba(0, 0, 0, 0.08);
+    --bg:#ffffff; --bg-alt:#f5f5f7; --tile:#f5f5f7; --text:#1d1d1f; --muted:#6e6e73;
+    --accent:#0071e3; --accent-hover:#0077ed; --yellow:#ffd60a;
+    --nav:rgba(255,255,255,.72); --line:rgba(0,0,0,.08);
   }
   @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #000000;
-      --bg-alt: #0b0b0c;
-      --tile: #161617;
-      --text: #f5f5f7;
-      --muted: #a1a1a6;
-      --accent: #2997ff;
-      --accent-hover: #47a6ff;
-      --nav: rgba(22, 22, 23, 0.72);
-      --line: rgba(255, 255, 255, 0.1);
-    }
+    :root { --bg:#000; --bg-alt:#0b0b0c; --tile:#161617; --text:#f5f5f7; --muted:#a1a1a6;
+      --accent:#2997ff; --accent-hover:#47a6ff; --nav:rgba(22,22,23,.72); --line:rgba(255,255,255,.1); }
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.015em;
-    line-height: 1.47;
-  }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  img { max-width: 100%; display: block; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; letter-spacing:-0.015em; line-height:1.47; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  img { max-width:100%; display:block; }
 
-  /* Navigation */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--nav);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: 1024px; margin: 0 auto; padding: 0 22px;
-    height: 52px; display: flex; align-items: center; gap: 24px;
-  }
-  .brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 19px; color: var(--text); }
-  .brand img { width: 26px; height: 26px; border-radius: 6px; }
-  .brand:hover { text-decoration: none; }
-  .nav-links { margin-left: auto; display: flex; gap: 22px; font-size: 12px; }
-  .nav-links a { color: var(--text); opacity: 0.8; }
-  .nav-links a:hover { opacity: 1; text-decoration: none; }
-  .pill {
-    display: inline-block; background: var(--accent); color: #fff;
-    border-radius: 980px; padding: 4px 12px; font-size: 12px; font-weight: 500;
-  }
-  .pill:hover { background: var(--accent-hover); text-decoration: none; }
+  nav { position:sticky; top:0; z-index:10; background:var(--nav); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid var(--line); }
+  .nav-inner { max-width:1024px; margin:0 auto; padding:0 22px; height:52px; display:flex; align-items:center; gap:24px; }
+  .brand { display:flex; align-items:center; gap:8px; font-weight:600; font-size:19px; color:var(--text); }
+  .brand img { width:26px; height:26px; border-radius:6px; }
+  .brand:hover { text-decoration:none; }
+  .nav-links { margin-left:auto; display:flex; align-items:center; gap:22px; font-size:12px; }
+  .nav-links a { color:var(--text); opacity:.8; }
+  .nav-links a:hover { opacity:1; text-decoration:none; }
+  .pill { display:inline-block; background:var(--accent); color:#fff !important; opacity:1 !important; border-radius:980px; padding:4px 12px; font-weight:500; }
+  .pill:hover { background:var(--accent-hover); }
 
-  /* Sections */
-  section { padding: 100px 22px; }
-  .wrap { max-width: 980px; margin: 0 auto; }
-  .center { text-align: center; }
-  .eyebrow { font-size: 21px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
-  h1 { font-size: clamp(44px, 8vw, 80px); line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; }
-  h2 { font-size: clamp(36px, 5.5vw, 56px); line-height: 1.07; font-weight: 700; letter-spacing: -0.025em; }
-  h3 { font-size: 24px; line-height: 1.17; font-weight: 600; letter-spacing: -0.02em; }
-  .lede { font-size: clamp(19px, 2.4vw, 24px); line-height: 1.38; color: var(--muted); font-weight: 500; max-width: 720px; margin: 20px auto 0; }
-  .lede strong { color: var(--text); font-weight: 600; }
+  .wrap { max-width:980px; margin:0 auto; padding:0 22px; }
+  .center { text-align:center; }
+  h1 { font-size:clamp(48px,8.5vw,96px); line-height:1.03; font-weight:700; letter-spacing:-0.04em; }
+  h2 { font-size:clamp(40px,6vw,80px); line-height:1.04; font-weight:700; letter-spacing:-0.035em; }
+  h3 { font-size:21px; line-height:1.2; font-weight:600; letter-spacing:-0.02em; }
+  .lede { font-size:clamp(19px,2.2vw,24px); line-height:1.38; color:var(--muted); font-weight:500; max-width:640px; margin:22px auto 0; }
+  .button { display:inline-block; border-radius:980px; padding:13px 26px; font-size:17px; background:var(--accent); color:#fff; }
+  .button:hover { background:var(--accent-hover); text-decoration:none; }
+  .link { font-size:17px; }
+  .cta { display:flex; gap:28px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:36px; }
 
-  .cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-  .button {
-    display: inline-block; border-radius: 980px; padding: 12px 24px; font-size: 17px; font-weight: 400;
-    background: var(--accent); color: #fff;
-  }
-  .button:hover { background: var(--accent-hover); text-decoration: none; }
-  .button.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
-  .button.ghost:hover { background: var(--accent); color: #fff; }
+  /* Hero: the icon's own brackets snap in */
+  .hero { padding:96px 0 120px; }
+  .hicon { position:relative; width:136px; height:136px; margin:0 auto 34px; }
+  .hicon img, .hicon i { position:absolute; inset:0; width:100%; height:100%; }
+  .hicon img { filter:drop-shadow(0 14px 28px rgba(0,0,0,.18)); }
+  .hicon i { background:url("images/icon-full.png") center/100% 100% no-repeat; }
 
-  /* Hero */
-  .hero { padding-top: 70px; padding-bottom: 40px; }
-  .hero .app-icon { width: 104px; height: 104px; margin: 0 auto 22px; border-radius: 23px; box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
-  .hero-image { margin: 56px auto 0; max-width: 1180px; padding: 0 22px; }
-  .hero-image img { border-radius: 28px; }
+  /* The live camera */
+  .story { background:#000; color:#f5f5f7; }
+  .s-demo { height:460vh; position:relative; }
+  .s-you { height:240vh; position:relative; }
+  .pin { position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .demo { width:min(1180px,92vw); display:grid; grid-template-columns:1fr auto; gap:4vw; align-items:center; }
+  .dtext { position:relative; min-height:clamp(240px,34vh,380px); }
+  .dt { position:absolute; left:0; top:0; font-size:clamp(40px,5.6vw,88px); }
+  .dt span { display:inline-block; }
+  .pile { position:absolute; left:0; top:calc(clamp(100px,13vw,200px) + 5vh); width:100%; height:clamp(120px,14vw,220px); }
+  .card { position:absolute; top:0; width:clamp(120px,15vw,260px); aspect-ratio:268/205; padding:clamp(4px,.5vw,8px); background:#fff; border-radius:clamp(8px,.8vw,12px); box-shadow:0 18px 40px rgba(0,0,0,.55); opacity:0; }
+  .card svg { display:block; width:100%; height:100%; border-radius:6px; }
+  .phonebox { width:calc(636px * var(--ps,.62)); height:calc(1290px * var(--ps,.62)); position:relative; }
 
-  /* Tiles */
-  .alt { background: var(--bg-alt); }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 56px; }
-  .tile {
-    background: var(--tile); border-radius: 28px; padding: 40px;
-    min-height: 240px; display: flex; flex-direction: column; justify-content: flex-end;
-  }
-  .alt .tile { background: var(--bg); }
-  .tile .icon { font-size: 40px; margin-bottom: auto; }
-  .tile p { color: var(--muted); font-size: 17px; margin-top: 10px; }
-  .tile.wide { grid-column: span 2; }
+  .sscam { position:absolute; width:636px; height:1290px; transform-origin:50% 50%; font-family:"Inter",sans-serif; }
+  .sscam-body { position:absolute; inset:0; border-radius:120px; background:#1C1C1E; box-shadow:0 0 0 3px #3A3A3C, 0 40px 80px rgba(0,0,0,.22), 0 12px 24px rgba(0,0,0,.12); }
+  .sscam-screen { position:absolute; left:18px; top:18px; width:600px; height:1254px; border-radius:102px; background:#000; overflow:hidden; }
+  .sscam-format { position:absolute; left:255px; top:130px; transform:translate(-50%,-50%); color:#fff; text-align:center; line-height:1.05; }
+  .sscam-format b { display:block; font-size:21px; font-weight:600; letter-spacing:.02em; }
+  .sscam-format span { display:block; font-size:17px; font-weight:500; }
+  .sscam-flashbtn { position:absolute; left:321px; top:102px; width:56px; height:56px; border-radius:50%; background:#2C2C2E; display:flex; align-items:center; justify-content:center; }
+  .sscam-vf { position:absolute; left:0; top:215px; width:600px; height:767px; overflow:hidden; }
+  .sscam-vf > svg.scene { position:absolute; inset:0; width:600px; height:767px; }
+  .sscam-pill { position:absolute; left:300px; top:38px; transform:translateX(-50%); height:40px; padding:0 18px 0 14px; border-radius:20px; background:#FFD60A; color:#000; display:flex; align-items:center; gap:8px; white-space:nowrap; font-size:20px; font-weight:600; letter-spacing:-.01em; }
+  .sscam-pill svg { fill:#000; flex:none; }
+  .sscam-zoom { position:absolute; left:300px; top:715px; transform:translate(-50%,-50%); height:58px; padding:0 7px; border-radius:29px; background:rgba(30,30,30,.28); box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); display:flex; align-items:center; gap:6px; }
+  .sscam-zoom i { width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.28); color:#fff; font-style:normal; font-size:17px; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .sscam-zoom i.on { width:50px; height:50px; background:rgba(70,25,15,.6); color:#FFD60A; }
+  .sscam .bracket { color:#FFD60A; }
+  .sscam .bracket.not-ready { color:rgba(255,255,255,.85); }
+  .sscam-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+  .sscam-thumb { position:absolute; left:42px; top:1090px; width:78px; height:78px; border-radius:14px; overflow:hidden; background:#1C1C1E; }
+  .sscam-thumb-photo { position:absolute; inset:0; width:78px; height:78px; }
+  .sscam-shutter { position:absolute; left:242px; top:1071px; width:116px; height:116px; }
+  .sscam-shutter .stop { position:absolute; left:37px; top:37px; width:42px; height:42px; border-radius:10px; background:#fff; }
+  .sscam-flip { position:absolute; left:480px; top:1090px; width:78px; height:78px; border-radius:50%; background:#2C2C2E; display:flex; align-items:center; justify-content:center; }
 
-  /* Feature rows */
-  .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .feature + .feature { margin-top: 110px; }
-  .feature.flip .feature-text { order: 2; }
-  .feature img { border-radius: 24px; max-height: 640px; margin: 0 auto; }
-  .feature-text p { color: var(--muted); font-size: 19px; margin-top: 16px; }
-  .feature-text p strong { color: var(--text); }
-  .tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--yellow); color: #000; border-radius: 980px;
-    padding: 4px 12px; font-size: 13px; font-weight: 600; margin-bottom: 16px; letter-spacing: 0;
-  }
+  .phonebox .sscam { left:0; top:0; transform:scale(var(--ps,.62)); transform-origin:0 0; font-family:inherit; }
+  .phonebox .sscam-pill { left:0; right:0; margin:0 auto; width:max-content; transform:none; }
+  .scan { position:absolute; left:190px; top:273px; width:220px; height:220px; filter:drop-shadow(0 0 22px rgba(255,214,10,.35)); opacity:0; }
+  .flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
 
-  /* Stats */
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
-  .stat { text-align: center; padding: 32px 16px; border-radius: 24px; background: var(--tile); }
-  .stat b { display: block; font-size: 44px; font-weight: 700; letter-spacing: -0.03em; }
-  .stat span { color: var(--muted); font-size: 15px; }
+  /* Even you */
+  .youimg { position:absolute; inset:0; overflow:hidden; clip-path:inset(18% 36% 18% 36% round 40px); }
+  .youimg svg { width:100%; height:100%; display:block; transform-origin:50% 60%; }
+  .yshade { position:absolute; inset:0; background:linear-gradient(160deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 50%); }
+  .yt { position:absolute; left:max(22px,7vw); top:max(90px,13vh); color:#1d1d1f; font-size:clamp(44px,7vw,112px); }
+  .yt span { display:inline-block; }
+  .yt .under { position:relative; isolation:isolate; }
+  .yt .under i { position:absolute; left:-4px; right:-4px; bottom:.04em; height:.18em; background:var(--yellow); border-radius:3px; z-index:-1; transform-origin:0 50%; }
 
-  /* Privacy */
-  .dark { background: #000; color: #f5f5f7; }
-  .dark .lede { color: #a1a1a6; }
-  .lock { font-size: 64px; margin-bottom: 20px; }
+  /* The facts */
+  .facts { padding:140px 0 120px; }
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:64px; }
+  .tile { background:var(--tile); border-radius:30px; padding:44px 40px 40px; min-height:300px; display:flex; flex-direction:column; justify-content:flex-end; }
+  .tile b { font-size:clamp(64px,8vw,96px); line-height:1; font-weight:700; letter-spacing:-0.05em; margin-bottom:auto; }
+  .tile b em { font-style:normal; color:var(--yellow); }
+  @media (prefers-color-scheme: light) { .tile b em { color:#d4a500; } }
+  .tile p { color:var(--muted); font-size:17px; margin-top:8px; max-width:380px; }
 
   /* Download */
-  .downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; text-align: left; }
-  .download { background: var(--tile); border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 10px; }
-  .download .platform { font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
-  .download p { color: var(--muted); font-size: 15px; flex: 1; }
-  .download .button { align-self: flex-start; margin-top: 12px; }
+  .get { padding:40px 0 140px; }
+  .downloads { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:56px; text-align:left; }
+  .download { background:var(--tile); border-radius:30px; padding:40px; display:flex; flex-direction:column; gap:10px; }
+  .download .platform { font-size:13px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  .download p { color:var(--muted); font-size:15px; flex:1; }
+  .download .button { align-self:flex-start; margin-top:14px; }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 22px 48px; color: var(--muted); font-size: 12px; }
-  footer .wrap { display: flex; flex-direction: column; gap: 8px; }
-
-  /* Gentle reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .reveal.shown { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    html { scroll-behavior: auto; }
-  }
+  footer { border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:12px; }
+  footer .wrap { display:flex; flex-direction:column; gap:8px; }
 
   @media (max-width: 760px) {
-    section { padding: 72px 18px; }
-    .nav-links a:not(.pill) { display: none; }
-    .grid, .downloads, .stats { grid-template-columns: 1fr; }
-    .tile.wide { grid-column: auto; }
-    .feature { grid-template-columns: 1fr; gap: 32px; }
-    .feature.flip .feature-text { order: 0; }
-    .tile { padding: 28px; min-height: 200px; }
+    .nav-links a:not(.pill) { display:none; }
+    .hero { padding:64px 0 88px; }
+    .demo { grid-template-columns:1fr; justify-items:center; gap:3vh; }
+    .dtext { width:100%; min-height:auto; height:clamp(120px,18vh,170px); text-align:center; }
+    .dt { left:0; right:0; }
+    .pile { display:none; }
+    .grid, .downloads { grid-template-columns:1fr; }
+    .tile { min-height:240px; padding:32px; }
+    .facts { padding:96px 0 80px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .s-demo, .s-you { height:auto; }
+    .pin { position:relative; height:auto; min-height:100vh; padding:80px 0; }
   }
 </style>
 </head>
@@ -171,9 +150,8 @@
   <div class="nav-inner">
     <a class="brand" href="#"><img src="icon.png" alt="">SmartShot</a>
     <div class="nav-links">
-      <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a href="#privacy">Privacy</a>
+      <a href="#facts">Features</a>
       <a href="https://github.com/harkhowalia-1/SmartShot">GitHub</a>
       <a class="pill" href="#download" data-smart-download>Download</a>
     </div>
@@ -182,104 +160,621 @@
 
 <section class="hero center">
   <div class="wrap">
-    <img class="app-icon" src="icon.png" alt="SmartShot app icon">
-    <p class="eyebrow">SmartShot</p>
-    <h1>The camera that<br>waits for everyone.</h1>
-    <p class="lede">It takes the photo the moment <strong>everyone is facing the camera, holding still and not blinking.</strong> No self-timer race. You're in the photo too.</p>
-    <div class="cta">
+    <div class="hicon"><img src="images/icon-base.png" alt="SmartShot app icon"><i class="hc hc-tl" data-dx="-1" data-dy="-1" style="clip-path:polygon(12% 12%,37% 12%,37% 22.5%,22.5% 22.5%,22.5% 37%,12% 37%)"></i><i class="hc hc-tr" data-dx="1" data-dy="-1" style="clip-path:polygon(88.0% 12.0%,63.0% 12.0%,63.0% 22.5%,77.5% 22.5%,77.5% 37.0%,88.0% 37.0%)"></i><i class="hc hc-bl" data-dx="-1" data-dy="1" style="clip-path:polygon(12.0% 88.0%,37.0% 88.0%,37.0% 77.5%,22.5% 77.5%,22.5% 63.0%,12.0% 63.0%)"></i><i class="hc hc-br" data-dx="1" data-dy="1" style="clip-path:polygon(88.0% 88.0%,63.0% 88.0%,63.0% 77.5%,77.5% 77.5%,77.5% 63.0%,88.0% 63.0%)"></i></div>
+    <h1 class="hl">The camera that<br>waits for everyone.</h1>
+    <p class="lede hl">It takes the photo the moment everyone is facing the camera, holding still and not blinking. You're in it too.</p>
+    <div class="cta hl">
       <a class="button" href="#download" data-smart-download>Download</a>
-      <a class="button ghost" href="https://github.com/harkhowalia-1/SmartShot">View on GitHub</a>
+      <a class="link" href="#how">See how it works ›</a>
     </div>
-  </div>
-  <div class="hero-image reveal">
-    <img src="images/hero.png" alt="SmartShot on three iPhones: counting who's ready, holding still, and the Format panel">
   </div>
 </section>
 
-<section class="alt" id="features">
-  <div class="wrap">
-    <div class="center reveal">
-      <h2>Press once.<br>Get the shot.</h2>
-      <p class="lede">Set your phone down, tap the shutter and join the group. SmartShot handles the rest.</p>
+<div class="story">
+  <section class="s-demo" id="how" aria-label="It waits for every face, then keeps shooting">
+    <div class="pin">
+      <div class="demo">
+        <div class="dtext">
+          <h2 class="dt dt1"><span>It waits for</span><br><span>every face.</span></h2>
+          <h2 class="dt dt2"><span>Then it keeps</span><br><span>shooting.</span></h2>
+          <div class="pile"><div class="card card0"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc0" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc0" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc0)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc0)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc0)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head" transform="rotate(-5 144,376)">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="card card1"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc1" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc1)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc1)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc1)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head" transform="rotate(5 456,384)">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="card card2"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc2)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc2)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc2)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head" transform="rotate(4 144,376)">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="card card3"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc3)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc3)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc3)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head" transform="rotate(-4 456,384)">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="card card4"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc4" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc4)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc4)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc4)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head" transform="rotate(-4 300,344)">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="card card5"><svg data-layout-allow-overflow class="" viewBox="0 170 600 450" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dc5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dc5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dc5" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dc5)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dc5)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dc5)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div></div>
+        </div>
+        <div class="phonebox"><style>
+  .sscam { position:absolute; width:636px; height:1290px; transform-origin:50% 50%; font-family:"Inter",sans-serif; }
+  .sscam-body { position:absolute; inset:0; border-radius:120px; background:#1C1C1E; box-shadow:0 0 0 3px #3A3A3C, 0 40px 80px rgba(0,0,0,.22), 0 12px 24px rgba(0,0,0,.12); }
+  .sscam-screen { position:absolute; left:18px; top:18px; width:600px; height:1254px; border-radius:102px; background:#000; overflow:hidden; }
+  .sscam-format { position:absolute; left:255px; top:130px; transform:translate(-50%,-50%); color:#fff; text-align:center; line-height:1.05; }
+  .sscam-format b { display:block; font-size:21px; font-weight:600; letter-spacing:.02em; }
+  .sscam-format span { display:block; font-size:17px; font-weight:500; }
+  .sscam-flashbtn { position:absolute; left:321px; top:102px; width:56px; height:56px; border-radius:50%; background:#2C2C2E; display:flex; align-items:center; justify-content:center; }
+  .sscam-vf { position:absolute; left:0; top:215px; width:600px; height:767px; overflow:hidden; }
+  .sscam-vf > svg.scene { position:absolute; inset:0; width:600px; height:767px; }
+  .sscam-pill { position:absolute; left:300px; top:38px; transform:translateX(-50%); height:40px; padding:0 18px 0 14px; border-radius:20px; background:#FFD60A; color:#000; display:flex; align-items:center; gap:8px; white-space:nowrap; font-size:20px; font-weight:600; letter-spacing:-.01em; }
+  .sscam-pill svg { fill:#000; flex:none; }
+  .sscam-zoom { position:absolute; left:300px; top:715px; transform:translate(-50%,-50%); height:58px; padding:0 7px; border-radius:29px; background:rgba(30,30,30,.28); box-shadow:inset 0 0 0 1px rgba(255,255,255,.18); display:flex; align-items:center; gap:6px; }
+  .sscam-zoom i { width:44px; height:44px; border-radius:50%; background:rgba(0,0,0,.28); color:#fff; font-style:normal; font-size:17px; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .sscam-zoom i.on { width:50px; height:50px; background:rgba(70,25,15,.6); color:#FFD60A; }
+  .sscam .bracket { color:#FFD60A; }
+  .sscam .bracket.not-ready { color:rgba(255,255,255,.85); }
+  .sscam-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; }
+  .sscam-thumb { position:absolute; left:42px; top:1090px; width:78px; height:78px; border-radius:14px; overflow:hidden; background:#1C1C1E; }
+  .sscam-thumb-photo { position:absolute; inset:0; width:78px; height:78px; }
+  .sscam-shutter { position:absolute; left:242px; top:1071px; width:116px; height:116px; }
+  .sscam-shutter .stop { position:absolute; left:37px; top:37px; width:42px; height:42px; border-radius:10px; background:#fff; }
+  .sscam-flip { position:absolute; left:480px; top:1090px; width:78px; height:78px; border-radius:50%; background:#2C2C2E; display:flex; align-items:center; justify-content:center; }
+</style>
+<div class="sscam" role="img" aria-label="The SmartShot camera locking onto three faces, then taking photos">
+  <div class="sscam-body"></div>
+  <div class="sscam-screen">
+    <div class="sscam-format"><b>HEIF</b><span>12</span></div>
+    <div class="sscam-flashbtn"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M13 2 5 13.5h6L10 22l8-11.5h-6L13 2Z" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 3l16 18" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+    <div class="sscam-vf">
+      <svg data-layout-allow-overflow class="scene" viewBox="0 16.5 600 767" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky-w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-w" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-w)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-w)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-w)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="bracket bracket-p1" style="transform-origin:144px 376px"><path d="M103.68 313.0 L81.0 313.0 L81.0 335.68 M184.32 313.0 L207.0 313.0 L207.0 335.68 M103.68 439.0 L81.0 439.0 L81.0 416.32 M184.32 439.0 L207.0 439.0 L207.0 416.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g class="bracket bracket-p2" style="transform-origin:300px 344px"><path d="M259.68 281.0 L237.0 281.0 L237.0 303.68 M340.32 281.0 L363.0 281.0 L363.0 303.68 M259.68 407.0 L237.0 407.0 L237.0 384.32 M340.32 407.0 L363.0 407.0 L363.0 384.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g class="bracket bracket-p3" style="transform-origin:456px 384px"><path d="M415.68 321.0 L393.0 321.0 L393.0 343.68 M496.32 321.0 L519.0 321.0 L519.0 343.68 M415.68 447.0 L393.0 447.0 L393.0 424.32 M496.32 447.0 L519.0 447.0 L519.0 424.32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g class="hint-p2" style="transform-origin:300px 407px"><circle cx="300" cy="407" r="16.5" fill="#FFD60A"/><ellipse cx="294" cy="407" rx="3.6" ry="5" fill="#000"/><ellipse cx="306" cy="407" rx="3.6" ry="5" fill="#000"/></g>
+      </svg>
+      <div class="sscam-pill fw-pill fw-pill0"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Waiting for everyone</span></div><div class="sscam-pill fw-pill fw-pill1"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>1 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill2"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>2 of 3 ready</span></div><div class="sscam-pill fw-pill fw-pill3"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still</span></div><div class="sscam-pill fw-pill fw-pill4"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>Hold still · 1 taken</span></div><div class="sscam-pill fw-pill fw-pill5"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>2 taken</span></div><div class="sscam-pill fw-pill fw-pill6"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>3 taken</span></div><div class="sscam-pill fw-pill fw-pill7"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>4 taken</span></div><div class="sscam-pill fw-pill fw-pill8"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>5 taken</span></div><div class="sscam-pill fw-pill fw-pill9"><svg class="pill-glyph" viewBox="0 0 20 20" width="21" height="21" aria-hidden="true"><path d="M2 6V2h4M14 2h4v4M2 14v4h4M18 14v4h-4" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.6" cy="9" r="1.7"/><circle cx="12.4" cy="9" r="1.7"/><path d="M5.5 14c.6-1.5 2.3-2.3 4.5-2.3s3.9.8 4.5 2.3" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></svg><span>6 taken</span></div>
+      <div class="sscam-zoom"><i>.5</i><i class="on">1×</i><i>2</i><i>3</i></div>
+      <div class="sscam-flash"></div><svg class="scan" viewBox="0 0 220 220" aria-hidden="true"><path d="M64 5 L5 5 L5 64" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M156 5 L215 5 L215 64" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M215 156 L215 215 L156 215" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 156 L5 215 L64 215" fill="none" stroke="#FFD60A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
+    <div class="sscam-thumb"><svg data-layout-allow-overflow class="sscam-thumb-photo" viewBox="60 220 480 480" preserveAspectRatio="xMidYMid slice"><defs>
+    <linearGradient id="sky-wt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-wt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-wt" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-wt)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-wt)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-wt)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div>
+    <div class="sscam-shutter">
+      <svg viewBox="0 0 116 116" width="116" height="116" aria-hidden="true">
+        <circle cx="58" cy="58" r="55" fill="none" stroke="#fff" stroke-width="6"/>
+        <circle class="sscam-ring-fill" cx="58" cy="58" r="55" fill="none" stroke="#FFD60A" stroke-width="6" stroke-linecap="round" stroke-dasharray="345.6" stroke-dashoffset="345.6" transform="rotate(-90 58 58)"/>
+      </svg>
+      <div class="stop"></div>
+    </div>
+    <div class="sscam-flip"><svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 9.5A7.5 7.5 0 0 0 6 7.2M4.5 14.5A7.5 7.5 0 0 0 18 16.8"/><path d="M6 3.5v3.9h3.9M18 20.5v-3.9h-3.9"/></svg></div>
+  </div>
+</div></div>
+      </div>
+      <div class="flash"></div>
+    </div>
+  </section>
+
+  <section class="s-you" aria-label="Everyone's in it. Even you.">
+    <div class="pin">
+      <div class="youimg" role="img" aria-label="The group photo, everyone smiling"><svg data-layout-allow-overflow class="" viewBox="0 132 600 337.5" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-fin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-fin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-fin" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-fin)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-fin)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-fin)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg><div class="yshade"></div></div>
+      <h2 class="yt"><span>Everyone's in it.</span><br><span>Even</span> <span class="under"><i></i>you.</span></h2>
+    </div>
+  </section>
+</div>
+
+<section class="facts" id="facts">
+  <div class="wrap">
+    <h2 class="center reveal">Press once.<br>Get the shot.</h2>
     <div class="grid">
-      <div class="tile reveal"><div class="icon">👥</div><h3>Everyone, ready.</h3><p>Faces, gaze, blinks and movement are checked for every person in the frame, many times a second.</p></div>
-      <div class="tile reveal"><div class="icon">🔁</div><h3>Keeps shooting.</h3><p>A new photo every time the whole group is ready again, until you stop it.</p></div>
-      <div class="tile reveal"><div class="icon">🙋</div><h3>Waits for you.</h3><p>With the back camera, it holds the first photo until you've stepped into the shot.</p></div>
-      <div class="tile reveal"><div class="icon">💻</div><h3>iPhone, iPad and Mac.</h3><p>The same smart camera everywhere, including your Mac's built-in camera or your iPhone as a webcam.</p></div>
+      <div class="tile reveal"><b>15<em>×</em></b><h3>Every face, every moment.</h3><p>Gaze, blinks and movement are checked for each person, fifteen times a second.</p></div>
+      <div class="tile reveal"><b>0</b><h3>Blinks in the shot.</h3><p>It fires on the first frame where nobody is mid-blink, and waits for you to step in.</p></div>
+      <div class="tile reveal"><b><em>∞</em></b><h3>Shots from one tap.</h3><p>A new photo every time the whole group is ready again, until you stop. Nobody has to run back to the camera.</p></div>
+      <div class="tile reveal"><b>100<em>%</em></b><h3>On your device.</h3><p>No account, no cloud. Faces are analysed on your device and never leave it.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how">
+<section class="get center" id="download">
   <div class="wrap">
-    <div class="feature reveal">
-      <div class="feature-text">
-        <span class="tag">Hold still · 2 taken</span>
-        <h2>Shoots at exactly the right moment.</h2>
-        <p>When everyone is ready, the brackets turn yellow and the shutter ring fills as the group holds still. The photo is taken on the <strong>first frame where nobody is mid-blink.</strong></p>
-      </div>
-      <img src="images/holding.png" alt="Everyone ready, with yellow brackets and a Hold still banner">
-    </div>
-    <div class="feature flip reveal">
-      <div class="feature-text">
-        <span class="tag">2 of 3 ready</span>
-        <h2>Knows who's not ready yet.</h2>
-        <p>Live hints show who's looking away, moving or blinking, and the banner counts how many people are ready. <strong>No more "wait, I wasn't looking."</strong></p>
-      </div>
-      <img src="images/waiting.png" alt="Two of three people ready, with a hint on the person looking away">
-    </div>
-
-    <div class="stats reveal">
-      <div class="stat"><b>15×</b><span>checks every second</span></div>
-      <div class="stat"><b>0.7 s</b><span>steady before the shot</span></div>
-      <div class="stat"><b>0</b><span>blinks in the photo</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
-    <div class="feature reveal">
-      <div class="feature-text">
-        <h2>Pro formats. Built in.</h2>
-        <p>HEIF or ProRAW at <strong>12, 24 or 48 megapixels</strong>, as your device allows, with the same processing as the built-in camera. 48 MP uses the main camera and switches lenses for .5× and telephoto automatically.</p>
-      </div>
-      <img src="images/format.png" alt="The Format panel with HEIF and RAW, 12 and 48 megapixels">
-    </div>
-    <div class="grid">
-      <div class="tile reveal"><div class="icon">🔍</div><h3>Zoom and focus.</h3><p>Lens buttons, pinch to zoom, and tap anywhere to focus and set exposure.</p></div>
-      <div class="tile reveal"><div class="icon">🖼️</div><h3>A viewer you already know.</h3><p>Swipe, pinch and double-tap through your photos, check the details, and share the original file.</p></div>
-      <div class="tile wide reveal"><div class="icon">✂️</div><h3>Edit without regret.</h3><p>Exposure, contrast, saturation, warmth, crop, straighten, rotate and flip. Every edit is non-destructive and can be reverted at any time.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="dark center" id="privacy">
-  <div class="wrap reveal">
-    <div class="lock">🔒</div>
-    <h2>Private by design.</h2>
-    <p class="lede">Everything SmartShot sees is analysed on your device. Camera frames are never stored or sent anywhere. No account, no cloud, no tracking. Your photos go to your own library, and nowhere else.</p>
-  </div>
-</section>
-
-<section class="center" id="download">
-  <div class="wrap">
-    <div class="reveal">
-      <h2>Get SmartShot.</h2>
-      <p class="lede">Free to download. Version 1.0.</p>
-    </div>
+    <h2 class="reveal">Get SmartShot.</h2>
+    <p class="lede reveal">Free. For iPhone, iPad and Mac.</p>
     <div class="downloads">
       <div class="download reveal">
         <span class="platform">Mac</span>
         <h3>SmartShot for Mac</h3>
-        <p>Apple silicon and Intel. macOS 14 or later. Notarized by Apple: unzip, move to Applications and open.</p>
+        <p>Apple silicon and Intel. macOS 14 or later. Notarized: unzip, move to Applications and open.</p>
         <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip" download>Download for Mac</a>
       </div>
       <div class="download reveal">
         <span class="platform">iPhone &amp; iPad</span>
         <h3>SmartShot for iPhone</h3>
-        <p>iOS 17 or later. Install the .ipa with AltStore or Sideloadly, or build it yourself from the source code.</p>
+        <p>iOS 17 or later. Install the .ipa with AltStore or Sideloadly, or build it from the source code.</p>
         <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa" download>Download for iPhone</a>
       </div>
     </div>
@@ -310,17 +805,98 @@
       if (a.classList.contains('button')) a.textContent = label;
     });
   })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => Array.from(document.querySelectorAll(s));
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Fade sections in as they scroll into view.
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('shown');
-        observer.unobserve(entry.target);
-      }
-    }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const fitPhone = () => {
+    const small = innerWidth <= 760;
+    const s = Math.min((innerHeight * (small ? 0.6 : 0.84)) / 1290, (innerWidth * (small ? 0.8 : 0.4)) / 636, 0.8);
+    $('.phonebox').style.setProperty('--ps', s.toFixed(4));
+  };
+  fitPhone();
+  addEventListener('resize', () => { fitPhone(); ScrollTrigger.refresh(); });
+
+  // Hero: the icon lands, then its own brackets snap in; the words follow.
+  const hero = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  hero.fromTo('.hicon', { y: 24, scale: 0.92, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.9, ease: 'expo.out' }, 0.1);
+  $$('.hc').forEach((c, i) => hero.fromTo(c, { x: c.dataset.dx * 14, y: c.dataset.dy * 14, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: 0.45 }, 0.75 + i * 0.04));
+  hero.fromTo('.hl', { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.12 }, 0.55);
+  if (reduced) hero.progress(1);
+
+  const scrubbed = (trigger, build) => {
+    const tl = gsap.timeline({ defaults: { ease: 'none' } });
+    build(tl);
+    if (reduced) { tl.progress(1).pause(); return; }
+    ScrollTrigger.create({ trigger, start: 'top top', end: 'bottom bottom', scrub: 0.6, animation: tl });
+  };
+
+  // The live camera: the bracket scans each face, the shot, then the burst.
+  scrubbed('.s-demo', (tl) => {
+    const vf = (s) => $('.s-demo .sscam-vf ' + s);
+    const pills = $$('.s-demo .sscam-pill');
+    const swap = (from, to, t) => {
+      tl.to(pills[from], { y: -8, opacity: 0, duration: 0.1 }, t);
+      tl.fromTo(pills[to], { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
+    };
+    tl.set(pills.slice(1), { opacity: 0 }, 0);
+    tl.set([vf('.bracket-p1'), vf('.bracket-p2'), vf('.bracket-p3')], { opacity: 0 }, 0);
+    tl.set(vf('.hint-p2'), { scale: 0, svgOrigin: '300 407' }, 0);
+    tl.set($$('.dt2 span'), { opacity: 0 }, 0);
+    tl.fromTo('.phonebox', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0);
+    tl.fromTo($$('.dt1 span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', stagger: 0.12 }, 0.15);
+    tl.fromTo('.scan', { x: 0, y: 0, scale: 1.6, opacity: 0 }, { scale: 1.3, opacity: 1, duration: 0.3 }, 0.35);
+    [['p1', 144, 376], ['p2', 300, 344], ['p3', 456, 384]].forEach(([p, fx, fy], i) => {
+      const t = 0.75 + i * 0.5;
+      tl.to('.scan', { x: 18 + fx - 300, y: 233 + fy - 16.5 - 383, scale: 0.57, duration: 0.35, ease: 'power3.inOut' }, t);
+      tl.fromTo(vf('.bracket-' + p), { opacity: 0, scale: 1.25, svgOrigin: fx + ' ' + fy }, { opacity: 1, scale: 1, svgOrigin: fx + ' ' + fy, duration: 0.2, ease: 'power3.out' }, t + 0.35);
+      swap(i, i + 1, t + 0.35);
+    });
+    tl.to('.scan', { opacity: 0, scale: 0.45, duration: 0.15 }, 2.3);
+    tl.fromTo('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6 }, { strokeDashoffset: 0, duration: 0.8, ease: 'power1.inOut' }, 2.35);
+    const shoot = (t, big) => {
+      tl.fromTo('.s-demo .sscam-flash', { opacity: 0 }, { opacity: big ? 0.95 : 0.7, duration: 0.03 }, t);
+      tl.to('.s-demo .sscam-flash', { opacity: 0, duration: big ? 0.25 : 0.15, ease: 'power2.out' }, t + 0.04);
+      tl.fromTo('.s-demo .sscam-shutter .stop', { scale: 1 }, { scale: 0.84, duration: 0.05 }, t);
+      tl.to('.s-demo .sscam-shutter .stop', { scale: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
+    };
+    shoot(3.2, true);
+    tl.fromTo('.s-demo .flash', { opacity: 0 }, { opacity: 0.3, duration: 0.03 }, 3.2);
+    tl.to('.s-demo .flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 3.25);
+    tl.to('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6, duration: 0.2 }, 3.3);
+    swap(3, 4, 3.3);
+    tl.to($$('.dt1 span'), { y: -40, opacity: 0, duration: 0.2, stagger: 0.04 }, 3.5);
+    tl.fromTo($$('.dt2 span'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.1 }, 3.65);
+    const rots = [-7, -2, 3, -4, 5, 1];
+    $$('.card').forEach((c, i) => { c.style.left = (i * 16) + '%'; c.style.top = (i % 2 ? 14 : 0) + 'px'; });
+    [3.2, 4.05, 4.4, 4.7, 4.95, 5.15].forEach((t, i) => {
+      if (i) { shoot(t, false); swap(3 + i, 4 + i, t + 0.04); }
+      tl.fromTo('.card' + i, { x: 260, y: -40, scale: 0.3, rotation: 0, opacity: 0 }, { x: 0, y: 0, scale: 1, rotation: rots[i], opacity: 1, duration: 0.35, ease: 'power3.out' }, t + 0.06);
+    });
+    tl.to({}, { duration: 0.7 });
+  });
+
+  // Even you: the photo opens to fill the screen.
+  scrubbed('.s-you', (tl) => {
+    tl.fromTo('.youimg', { clipPath: 'inset(18% 36% 18% 36% round 40px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1, ease: 'power2.inOut' }, 0);
+    tl.fromTo('.youimg svg', { scale: 1.2 }, { scale: 1, duration: 1.2, ease: 'power2.out' }, 0);
+    tl.fromTo('.yshade', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.6);
+    tl.fromTo($$('.yt > span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.15 }, 1.0);
+    tl.fromTo('.yt .under i', { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: 'power2.inOut' }, 1.6);
+    tl.to({}, { duration: 0.6 });
+  });
+
+  // Everything else eases in as it arrives.
+  if (!reduced) $$('.reveal').forEach((el) => gsap.fromTo(el, { opacity: 0, y: 48 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none reverse' } }));
+})();
 </script>
 </body>
 </html>
