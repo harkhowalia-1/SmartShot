@@ -71,6 +71,7 @@ targets:
       base:
         PRODUCT_NAME: SmartShot
         PRODUCT_BUNDLE_IDENTIFIER: com.harkhowalia.smartshot.mac
+        ENABLE_HARDENED_RUNTIME: YES
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         GENERATE_INFOPLIST_FILE: NO
         CODE_SIGN_IDENTITY: "-"

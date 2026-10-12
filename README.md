@@ -113,7 +113,7 @@ Get the latest version from [**Releases**](../../releases/latest).
 | **Mac** | [`SmartShot-macOS.zip`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip) | Apple silicon and Intel, macOS 14 or later |
 | **iPhone & iPad** | [`SmartShot-iOS.ipa`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa) | iOS 17 or later, install with [AltStore](https://altstore.io) or [Sideloadly](https://sideloadly.io) |
 
-**Mac:** unzip and move SmartShot to Applications. The first time, open **System Settings → Privacy & Security** and click **Open Anyway**.
+**Mac:** unzip, move SmartShot to Applications and open it. It's signed and notarized by Apple, so it opens like any other app.
 
 ## Build from source
 
