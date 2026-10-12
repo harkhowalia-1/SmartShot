@@ -1,4 +1,7 @@
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 /// An illustrated group photo used in place of the camera feed for App Store-style screenshots
 /// (no real people, no stock photos). Debug builds only; see `DemoMode`.
@@ -19,6 +22,9 @@ struct DemoScene: View {
         Person(x: 0.76, skin: Color(red: 0.85, green: 0.65, blue: 0.50), hair: Color(red: 0.78, green: 0.58, blue: 0.32),
                shirt: Color(red: 0.22, green: 0.30, blue: 0.55), height: 0.48),
     ]
+
+    /// People (by index) shown looking away from the camera, for the "not ready" screenshot.
+    var lookingAway: Set<Int> = []
 
     /// Head radius as a fraction of the scene width.
     static let headRadius: CGFloat = 0.075
@@ -55,17 +61,19 @@ struct DemoScene: View {
                     .frame(height: h * 0.3)
                     .frame(maxHeight: .infinity, alignment: .bottom)
 
-                ForEach(Array(Self.people.enumerated()), id: \.offset) { _, p in
-                    figure(p, w: w, h: h)
+                ForEach(Array(Self.people.enumerated()), id: \.offset) { i, p in
+                    figure(p, w: w, h: h, away: lookingAway.contains(i))
                 }
             }
             .clipped()
         }
     }
 
-    private func figure(_ p: Person, w: CGFloat, h: CGFloat) -> some View {
+    private func figure(_ p: Person, w: CGFloat, h: CGFloat, away: Bool) -> some View {
         let r = Self.headRadius * w
         let cx = p.x * w, cy = p.height * h
+        // Looking away: the face slides to one side and the head tilts, like a turned head.
+        let faceShift = away ? r * 0.33 : 0
         return ZStack {
             // Shoulders and body
             UnevenRoundedRectangle(topLeadingRadius: r * 1.2, topTrailingRadius: r * 1.2)
@@ -76,22 +84,26 @@ struct DemoScene: View {
             Capsule().fill(p.skin.opacity(0.92)).frame(width: r * 0.7, height: r * 0.8)
                 .position(x: cx, y: cy + r * 0.95)
             // Head, hair and a friendly face
-            Circle().fill(p.skin).frame(width: r * 2, height: r * 2).position(x: cx, y: cy)
-            Circle()
-                .trim(from: 0.5, to: 1)
-                .fill(p.hair)
-                .frame(width: r * 2.08, height: r * 2.08)
-                .position(x: cx, y: cy - r * 0.18)
-            HStack(spacing: r * 0.55) {
-                Circle().fill(.black.opacity(0.75)).frame(width: r * 0.2)
-                Circle().fill(.black.opacity(0.75)).frame(width: r * 0.2)
+            ZStack {
+                Circle().fill(p.skin).frame(width: r * 2, height: r * 2).position(x: cx, y: cy)
+                Circle()
+                    .trim(from: 0.5, to: 1)
+                    .fill(p.hair)
+                    .frame(width: r * 2.08, height: r * 2.08)
+                    .position(x: cx, y: cy - r * 0.18)
+                HStack(spacing: r * 0.55) {
+                    Circle().fill(.black.opacity(0.75)).frame(width: r * 0.2)
+                    Circle().fill(.black.opacity(0.75)).frame(width: r * 0.2)
+                }
+                .position(x: cx + faceShift, y: cy + r * 0.12)
+                Circle()
+                    .trim(from: 0.08, to: 0.42)
+                    .stroke(.black.opacity(0.55), style: StrokeStyle(lineWidth: r * 0.09, lineCap: .round))
+                    .frame(width: r * 0.8, height: r * 0.8)
+                    .position(x: cx + faceShift, y: cy + r * 0.12)
             }
-            .position(x: cx, y: cy + r * 0.12)
-            Circle()
-                .trim(from: 0.08, to: 0.42)
-                .stroke(.black.opacity(0.55), style: StrokeStyle(lineWidth: r * 0.09, lineCap: .round))
-                .frame(width: r * 0.8, height: r * 0.8)
-                .position(x: cx, y: cy + r * 0.12)
+            .frame(width: w, height: h)
+            .rotationEffect(.degrees(away ? 9 : 0), anchor: UnitPoint(x: cx / w, y: cy / h))
         }
     }
 
@@ -121,6 +133,24 @@ enum DemoMode {
         return args[i + 1]
         #else
         return nil
+        #endif
+    }
+
+    /// With `-SmartShotSnapshot <name>` (Mac, debug only), saves the window as a PNG in the app's temporary folder and quits,
+    /// so store screenshots can be made without screen-recording permission.
+    static func snapshotIfRequested() {
+        #if DEBUG && os(macOS)
+        let args = ProcessInfo.processInfo.arguments
+        guard let i = args.firstIndex(of: "-SmartShotSnapshot"), i + 1 < args.count else { return }
+        let path = args[i + 1]
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            guard let view = NSApp.windows.first(where: \.isVisible)?.contentView?.superview,
+                  let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { return }
+            view.cacheDisplay(in: view.bounds, to: rep)
+            let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(path)   // inside the sandbox container
+            try? rep.representation(using: .png, properties: [:])?.write(to: url)
+            NSApp.terminate(nil)
+        }
         #endif
     }
 }

@@ -38,6 +38,7 @@ struct CameraView: View {
             #if DEBUG
             if let scene = DemoMode.scene {
                 camera.enterDemo(scene)
+                DemoMode.snapshotIfRequested()
                 return
             }
             #endif
@@ -193,7 +194,7 @@ struct CameraView: View {
     private var viewfinder: some View {
         Group {
             if DemoMode.scene != nil {
-                DemoScene()
+                DemoScene(lookingAway: DemoMode.scene == "waiting" ? [1] : [])
             } else {
                 PreviewLayerView(layer: camera.previewLayer)
             }
