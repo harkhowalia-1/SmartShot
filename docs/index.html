@@ -58,7 +58,7 @@
 
   /* The live camera */
   .story { background:#000; color:#f5f5f7; }
-  .s-demo { height:340vh; position:relative; }
+  .s-demo { height:300vh; position:relative; }
   .chap { position:absolute; z-index:4; left:50%; bottom:max(22px,4vh); transform:translateX(-50%); display:flex; gap:8px; padding:9px 12px; border-radius:20px;
     background:rgba(60,60,64,.42); -webkit-backdrop-filter:saturate(180%) blur(18px); backdrop-filter:saturate(180%) blur(18px); }
   .chap i { display:block; width:7px; height:7px; border-radius:4px; background:rgba(255,255,255,.45); transition:width .45s cubic-bezier(.2,.8,.2,1), background .3s; }
@@ -687,33 +687,42 @@
     if (st.progress > 0 || scrollY > st.start) tl.progress(1);
   };
 
-  // Apple-style chapters: the story is pinned and split into chapters. Scrolling into a chapter
-  // plays it at its natural speed (like the film); scrolling back rewinds quickly to the previous
-  // chapter; skipping ahead fast runs through the chapters in between at a higher speed.
+  // Auto-play, steered by scroll: once you reach the story it plays by itself at its natural
+  // speed. Scrolling ahead of it fast-forwards to the chapter you've reached and carries on from
+  // there; scrolling back into an earlier chapter rewinds quickly to that chapter and replays it;
+  // scrolling back above the section resets it. The dots follow what's playing.
   const chaptered = (trigger, build, marks, cuts) => {
     const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
     build(tl);
+    const starts = [0].concat(marks.slice(0, -1)), end = marks[marks.length - 1];
     const dots = $$(trigger + ' .chap i');
-    const mark = (i) => dots.forEach((d, j) => d.classList.toggle('on', j === i));
-    if (reduced) { tl.progress(1); mark(marks.length - 1); return; }
-    let current = -1, run = null;
-    const go = (i) => {
-      if (i === current) return;
-      const target = i < 0 ? 0 : marks[i];
-      const back = target < tl.time();
-      const ahead = Math.max(1, i - current);
-      current = i; mark(i);
-      if (run) run.kill();
-      const dist = Math.abs(target - tl.time());
-      run = tl.tweenTo(target, back
-        ? { duration: Math.min(0.9, 0.25 + dist / 6), ease: 'power2.inOut' }
-        : { duration: dist / (ahead > 1 ? 2.6 : 1), ease: 'none' });
+    const chapterAt = (t) => { let i = 0; starts.forEach((s, j) => { if (t >= s - 0.01) i = j; }); return i; };
+    const mark = () => { const i = chapterAt(tl.time()); dots.forEach((d, j) => d.classList.toggle('on', j === i)); };
+    tl.eventCallback('onUpdate', mark);
+    if (reduced) { tl.progress(1); mark(); return; }
+    let seek = null, scrollChapter = -1;
+    const playOn = () => { seek = null; if (tl.time() < end) tl.tweenTo(end, { duration: end - tl.time(), ease: 'none' }); };
+    const jump = (t, fast) => {
+      if (seek) seek.kill();
+      gsap.killTweensOf(tl);
+      const dist = Math.abs(t - tl.time());
+      seek = tl.tweenTo(t, fast
+        ? { duration: Math.min(0.9, 0.25 + dist / 6), ease: 'power2.inOut', onComplete: playOn }
+        : { duration: dist / 2.6, ease: 'none', onComplete: playOn });
     };
     const pick = (p) => { let i = 0; cuts.forEach((c, j) => { if (p >= c) i = j + 1; }); return i; };
     ScrollTrigger.create({
       trigger, start: 'top 65%', end: 'bottom bottom',
-      onUpdate: (st) => go(pick(st.progress)),
-      onLeaveBack: () => go(-1),
+      onEnter: () => { scrollChapter = 0; playOn(); },
+      onUpdate: (st) => {
+        const i = pick(st.progress);
+        if (i === scrollChapter) return;
+        const t = tl.time();
+        if (i > scrollChapter && starts[i] > t) jump(starts[i], false);       // ahead of the story: catch up
+        else if (i < scrollChapter && chapterAt(t) > i) jump(starts[i], true); // back: replay that chapter
+        scrollChapter = i;
+      },
+      onLeaveBack: () => { scrollChapter = -1; if (seek) seek.kill(); gsap.killTweensOf(tl); tl.tweenTo(0, { duration: 0.5, ease: 'power2.inOut' }); },
     });
   };
 
