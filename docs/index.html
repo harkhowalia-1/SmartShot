@@ -175,7 +175,7 @@
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
       <a href="https://github.com/harkhowalia-1/SmartShot">GitHub</a>
-      <a class="pill" href="#download">Download</a>
+      <a class="pill" href="#download" data-smart-download>Download</a>
     </div>
   </div>
 </nav>
@@ -187,7 +187,7 @@
     <h1>The camera that<br>waits for everyone.</h1>
     <p class="lede">It takes the photo the moment <strong>everyone is facing the camera, holding still and not blinking.</strong> No self-timer race. You're in the photo too.</p>
     <div class="cta">
-      <a class="button" href="#download">Download</a>
+      <a class="button" href="#download" data-smart-download>Download</a>
       <a class="button ghost" href="https://github.com/harkhowalia-1/SmartShot">View on GitHub</a>
     </div>
   </div>
@@ -274,13 +274,13 @@
         <span class="platform">Mac</span>
         <h3>SmartShot for Mac</h3>
         <p>Apple silicon and Intel. macOS 14 or later. Unzip, move to Applications, then choose Open Anyway in System Settings › Privacy &amp; Security the first time.</p>
-        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest">Download for Mac</a>
+        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip" download>Download for Mac</a>
       </div>
       <div class="download reveal">
         <span class="platform">iPhone &amp; iPad</span>
         <h3>SmartShot for iPhone</h3>
         <p>iOS 17 or later. Install the .ipa with AltStore or Sideloadly, or build it yourself from the source code.</p>
-        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest">Download for iPhone</a>
+        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa" download>Download for iPhone</a>
       </div>
     </div>
   </div>
@@ -294,6 +294,23 @@
 </footer>
 
 <script>
+  // The main Download buttons fetch the right file for this device directly;
+  // anywhere else they scroll to the download section.
+  (() => {
+    const ua = navigator.userAgent;
+    const touchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;   // iPadOS reports itself as a Mac
+    const isIOS = /iPhone|iPad|iPod/.test(ua) || touchMac;
+    const isMac = /Macintosh/.test(ua) && !touchMac;
+    const file = isIOS ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa' : isMac ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip' : null;
+    const label = isIOS ? 'Download for iPhone' : isMac ? 'Download for Mac' : null;
+    if (!file) return;
+    document.querySelectorAll('[data-smart-download]').forEach(a => {
+      a.href = file;
+      a.setAttribute('download', '');
+      if (a.classList.contains('button')) a.textContent = label;
+    });
+  })();
+
   // Fade sections in as they scroll into view.
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
