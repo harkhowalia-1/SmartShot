@@ -58,8 +58,8 @@
 
   /* The live camera */
   .story { background:#000; color:#f5f5f7; }
-  .s-demo { height:460vh; position:relative; }
-  .s-you { height:240vh; position:relative; }
+  .s-demo { height:200vh; position:relative; }
+  .s-you { height:170vh; position:relative; }
   .pin { position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; display:flex; align-items:center; justify-content:center; }
   .demo { width:min(1180px,92vw); display:grid; grid-template-columns:1fr auto; gap:4vw; align-items:center; }
   .dtext { position:relative; min-height:clamp(240px,34vh,380px); }
@@ -831,15 +831,23 @@
   hero.fromTo('.hl', { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.12 }, 0.55);
   if (reduced) hero.progress(1);
 
-  const scrubbed = (trigger, build) => {
-    const tl = gsap.timeline({ defaults: { ease: 'none' } });
+  // Each scene plays by itself, like a video, as soon as you reach it.
+  // Scrolling back above it rewinds it so it plays again next time; scrolling
+  // back up into a finished scene leaves it on its last frame.
+  const autoplay = (trigger, build) => {
+    const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
     build(tl);
-    if (reduced) { tl.progress(1).pause(); return; }
-    ScrollTrigger.create({ trigger, start: 'top top', end: 'bottom bottom', scrub: 0.6, animation: tl });
+    if (reduced) { tl.progress(1); return; }
+    const st = ScrollTrigger.create({
+      trigger, start: 'top 55%', end: 'bottom top',
+      onEnter: () => tl.restart(),
+      onLeaveBack: () => tl.pause(0),
+    });
+    if (st.progress > 0 || scrollY > st.start) tl.progress(1);
   };
 
   // The live camera: the bracket scans each face, the shot, then the burst.
-  scrubbed('.s-demo', (tl) => {
+  autoplay('.s-demo', (tl) => {
     const vf = (s) => $('.s-demo .sscam-vf ' + s);
     const pills = $$('.s-demo .sscam-pill');
     const swap = (from, to, t) => {
@@ -884,7 +892,7 @@
   });
 
   // Even you: the photo opens to fill the screen.
-  scrubbed('.s-you', (tl) => {
+  autoplay('.s-you', (tl) => {
     tl.fromTo('.youimg', { clipPath: 'inset(18% 36% 18% 36% round 40px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', duration: 1, ease: 'power2.inOut' }, 0);
     tl.fromTo('.youimg svg', { scale: 1.2 }, { scale: 1, duration: 1.2, ease: 'power2.out' }, 0);
     tl.fromTo('.yshade', { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.6);
