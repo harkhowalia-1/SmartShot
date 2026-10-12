@@ -855,36 +855,46 @@
       tl.fromTo(pills[to], { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
     };
     tl.set(pills.slice(1), { opacity: 0 }, 0);
-    tl.set([vf('.bracket-p1'), vf('.bracket-p2'), vf('.bracket-p3')], { opacity: 0 }, 0);
-    tl.set(vf('.hint-p2'), { scale: 0, svgOrigin: '300 407' }, 0);
+    // Nobody is ready yet: heads turned away, brackets white, a hint on the middle face.
+    const away = { p1: [-16, -11, '144 376'], p2: [15, 9, '300 344'], p3: [14, 12, '456 384'] };
+    Object.entries(away).forEach(([p, [fx, rot, o]]) => {
+      tl.set(vf('.' + p + '-face'), { x: fx }, 0);
+      tl.set(vf('.' + p + '-head'), { rotation: rot, svgOrigin: o }, 0);
+      tl.set(vf('.bracket-' + p), { color: 'rgba(255,255,255,0.85)', opacity: 1 }, 0);
+    });
+    tl.set(vf('.hint-p2'), { scale: 1, svgOrigin: '300 407' }, 0);
     tl.set($$('.dt2 span'), { opacity: 0 }, 0);
     tl.fromTo('.phonebox', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }, 0);
     tl.fromTo($$('.dt1 span'), { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: 'power3.out', stagger: 0.12 }, 0.15);
     tl.fromTo('.scan', { x: 0, y: 0, scale: 1.6, opacity: 0 }, { scale: 1.3, opacity: 1, duration: 0.3 }, 0.35);
     [['p1', 144, 376], ['p2', 300, 344], ['p3', 456, 384]].forEach(([p, fx, fy], i) => {
-      const t = 0.75 + i * 0.5;
+      const t = 0.75 + i * 0.7;
       tl.to('.scan', { x: 18 + fx - 300, y: 233 + fy - 16.5 - 383, scale: 0.57, duration: 0.35, ease: 'power3.inOut' }, t);
-      tl.fromTo(vf('.bracket-' + p), { opacity: 0, scale: 1.25, svgOrigin: fx + ' ' + fy }, { opacity: 1, scale: 1, svgOrigin: fx + ' ' + fy, duration: 0.2, ease: 'power3.out' }, t + 0.35);
-      swap(i, i + 1, t + 0.35);
+      // the camera reads them; they turn to look into it
+      tl.to(vf('.' + p + '-face'), { x: 0, duration: 0.35, ease: 'power2.inOut' }, t + 0.3);
+      tl.to(vf('.' + p + '-head'), { rotation: 0, svgOrigin: fx + ' ' + fy, duration: 0.35, ease: 'power2.inOut' }, t + 0.3);
+      if (p === 'p2') tl.to(vf('.hint-p2'), { scale: 0, svgOrigin: '300 407', duration: 0.2, ease: 'power2.in' }, t + 0.3);
+      tl.fromTo(vf('.bracket-' + p), { color: 'rgba(255,255,255,0.85)', scale: 1.25, svgOrigin: fx + ' ' + fy }, { color: '#FFD60A', scale: 1, svgOrigin: fx + ' ' + fy, duration: 0.25, ease: 'power3.out' }, t + 0.62);
+      swap(i, i + 1, t + 0.62);
     });
-    tl.to('.scan', { opacity: 0, scale: 0.45, duration: 0.15 }, 2.3);
-    tl.fromTo('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6 }, { strokeDashoffset: 0, duration: 0.8, ease: 'power1.inOut' }, 2.35);
+    tl.to('.scan', { opacity: 0, scale: 0.45, duration: 0.15 }, 3.0);
+    tl.fromTo('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6 }, { strokeDashoffset: 0, duration: 0.8, ease: 'power1.inOut' }, 3.05);
     const shoot = (t, big) => {
       tl.fromTo('.s-demo .sscam-flash', { opacity: 0 }, { opacity: big ? 0.95 : 0.7, duration: 0.03 }, t);
       tl.to('.s-demo .sscam-flash', { opacity: 0, duration: big ? 0.25 : 0.15, ease: 'power2.out' }, t + 0.04);
       tl.fromTo('.s-demo .sscam-shutter .stop', { scale: 1 }, { scale: 0.84, duration: 0.05 }, t);
       tl.to('.s-demo .sscam-shutter .stop', { scale: 1, duration: 0.15, ease: 'power3.out' }, t + 0.05);
     };
-    shoot(3.2, true);
-    tl.fromTo('.s-demo .flash', { opacity: 0 }, { opacity: 0.3, duration: 0.03 }, 3.2);
-    tl.to('.s-demo .flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 3.25);
-    tl.to('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6, duration: 0.2 }, 3.3);
-    swap(3, 4, 3.3);
-    tl.to($$('.dt1 span'), { y: -40, opacity: 0, duration: 0.2, stagger: 0.04 }, 3.5);
-    tl.fromTo($$('.dt2 span'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.1 }, 3.65);
+    shoot(3.9, true);
+    tl.fromTo('.s-demo .flash', { opacity: 0 }, { opacity: 0.3, duration: 0.03 }, 3.90);
+    tl.to('.s-demo .flash', { opacity: 0, duration: 0.3, ease: 'power2.out' }, 3.95);
+    tl.to('.s-demo .sscam-ring-fill', { strokeDashoffset: 345.6, duration: 0.2 }, 4.00);
+    swap(3, 4, 4.0);
+    tl.to($$('.dt1 span'), { y: -40, opacity: 0, duration: 0.2, stagger: 0.04 }, 4.20);
+    tl.fromTo($$('.dt2 span'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out', stagger: 0.1 }, 4.35);
     const rots = [-7, -2, 3, -4, 5, 1];
     $$('.card').forEach((c, i) => { c.style.left = (i * 16) + '%'; c.style.top = (i % 2 ? 14 : 0) + 'px'; });
-    [3.2, 4.05, 4.4, 4.7, 4.95, 5.15].forEach((t, i) => {
+    [3.9, 4.75, 5.1, 5.4, 5.65, 5.85].forEach((t, i) => {
       if (i) { shoot(t, false); swap(3 + i, 4 + i, t + 0.04); }
       tl.fromTo('.card' + i, { x: 260, y: -40, scale: 0.3, rotation: 0, opacity: 0 }, { x: 0, y: 0, scale: 1, rotation: rots[i], opacity: 1, duration: 0.35, ease: 'power3.out' }, t + 0.06);
     });
