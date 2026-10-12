@@ -25,6 +25,8 @@ struct DemoScene: View {
 
     /// People (by index) shown looking away from the camera, for the "not ready" screenshot.
     var lookingAway: Set<Int> = []
+    /// Head tilt in degrees per person (by index), for the "keep posing" screenshot.
+    var tilt: [Int: Double] = [:]
 
     /// Head radius as a fraction of the scene width.
     static let headRadius: CGFloat = 0.075
@@ -62,14 +64,14 @@ struct DemoScene: View {
                     .frame(maxHeight: .infinity, alignment: .bottom)
 
                 ForEach(Array(Self.people.enumerated()), id: \.offset) { i, p in
-                    figure(p, w: w, h: h, away: lookingAway.contains(i))
+                    figure(p, w: w, h: h, away: lookingAway.contains(i), tilt: tilt[i] ?? 0)
                 }
             }
             .clipped()
         }
     }
 
-    private func figure(_ p: Person, w: CGFloat, h: CGFloat, away: Bool) -> some View {
+    private func figure(_ p: Person, w: CGFloat, h: CGFloat, away: Bool, tilt: Double) -> some View {
         let r = Self.headRadius * w
         let cx = p.x * w, cy = p.height * h
         // Looking away: the face slides to one side and the head tilts, like a turned head.
@@ -103,7 +105,7 @@ struct DemoScene: View {
                     .position(x: cx + faceShift, y: cy + r * 0.12)
             }
             .frame(width: w, height: h)
-            .rotationEffect(.degrees(away ? 9 : 0), anchor: UnitPoint(x: cx / w, y: cy / h))
+            .rotationEffect(.degrees(away ? 9 : tilt), anchor: UnitPoint(x: cx / w, y: cy / h))
         }
     }
 

@@ -233,6 +233,10 @@ final class CameraModel: NSObject {
             faces[1].facingCamera = false
             readiness = ReadinessSnapshot(faces: faces, phase: .waiting)
             smartShotState = .armed
+        case "posing":
+            readiness = ReadinessSnapshot(faces: faces, phase: .holding(0.35))
+            smartShotState = .armed
+            smartShotCount = 6
         case "format":
             readiness = ReadinessSnapshot(faces: faces, phase: .holding(0))
             smartShotState = .idle

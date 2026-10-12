@@ -17,7 +17,7 @@ Everything to paste into App Store Connect. One Universal Purchase app (iPhone, 
 
 | Field | Value |
 |---|---|
-| Subtitle (30) | Group photos, everyone ready |
+| Subtitle (30) | No timer. Just join the shot. |
 | Category | Photo & Video *(secondary: none)* |
 | Content rights | Does not contain third-party content |
 | Age rating | Answer **None / No** to every question → **4+** |
@@ -34,21 +34,25 @@ Data collection: **"No, we do not collect data from this app."** → result: **D
 ## Version 1.0.1 (iOS and macOS — same text for both)
 
 **Promotional text (170)**
-Set your phone down, press once and join the group. SmartShot takes the photo the moment everyone is looking, holding still and not blinking.
+Set it down, press once and walk into the group. SmartShot shoots when everyone's ready, then keeps shooting while you pose.
 
 **Description**
-SmartShot is the camera that waits for everyone.
+Set it down. Join the shot.
 
-No more racing the self-timer. No more photos where someone blinked, looked away or moved. Set your iPhone, iPad or Mac down, press the shutter once and join the group. SmartShot watches every face and takes the photo at the moment everyone is ready.
+No timer to set and no sprint back to the group. Prop up your iPhone, iPad or Mac, press the shutter once and walk into the picture. SmartShot takes the photo when everyone is in place, settled and looking, and keeps shooting while you pose.
 
-EVERY FACE, EVERY MOMENT
-• Checks gaze, blinks and movement for each person, many times a second
-• Live hints show who's looking away, moving or blinking
-• With the back camera, it waits for you to step into the shot
+NO TIMER NEEDED
+• Press once, then take your time getting into the shot
+• With the back camera, it waits for you to step in
 
-PRESS ONCE, KEEPS SHOOTING
-• A new photo every time the whole group is ready again, until you stop
-• Fires on the first frame where nobody is mid-blink
+IT KNOWS WHEN YOU'RE READY
+• Watches every face: in position, holding still, looking at the camera
+• Live hints show who's still looking away, moving or blinking
+• Takes the photo on a frame where nobody is mid-blink
+
+KEEP POSING
+• A new photo every time the group settles again, until you press stop
+• Change poses as much as you like, then pick your favourite
 
 FULL QUALITY
 • HEIF or ProRAW at up to 48 MP, as your device allows

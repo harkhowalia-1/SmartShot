@@ -194,7 +194,8 @@ struct CameraView: View {
     private var viewfinder: some View {
         Group {
             if DemoMode.scene != nil {
-                DemoScene(lookingAway: DemoMode.scene == "waiting" ? [1] : [])
+                DemoScene(lookingAway: DemoMode.scene == "waiting" ? [1] : [],
+                          tilt: DemoMode.scene == "posing" ? [0: 12, 1: -6, 2: -13] : [:])
             } else {
                 PreviewLayerView(layer: camera.previewLayer)
             }

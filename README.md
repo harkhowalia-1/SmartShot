@@ -5,9 +5,9 @@
 <h1 align="center">SmartShot</h1>
 
 <p align="center">
-  <b>The camera that waits for everyone.</b><br>
-  SmartShot watches the group and takes the photo the moment everyone is facing the camera,<br>
-  holding still and not blinking. No self-timer race. You're in the photo too.
+  <b>Set it down. Join the shot.</b><br>
+  No timer, no running back. Prop up your iPhone, iPad or Mac, press once and walk into the group.<br>
+  SmartShot takes the photo when everyone is in place, settled and looking, then keeps shooting while you pose.
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 <p align="center">
   <a href="https://harkhowalia-1.github.io/SmartShot/"><b>Website</b></a> ·
-  <a href="#features">Features</a> ·
+  <a href="#how-it-works">How it works</a> ·
   <a href="#how-it-decides">How it decides</a> ·
   <a href="#download">Download</a> ·
   <a href="#build-from-source">Build from source</a>
@@ -29,57 +29,37 @@
 <br>
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="SmartShot on iPhone: waiting for the group, holding still while everyone is ready, and the Format panel" width="100%">
+  <img src="docs/images/how-it-works.jpg" alt="SmartShot on iPhone: set it down and join the shot, it waits until everyone is ready, and it keeps shooting while you pose" width="100%">
 </p>
 
 <br>
 
+## How it works
+
 <table>
   <tr>
-    <td width="25%" valign="top">
-      <h3>👥 Everyone, ready</h3>
-      Faces, gaze, blinks and movement are checked for every person in the frame, many times a second.
+    <td width="33%" valign="top">
+      <img src="docs/images/shot-holding.jpg" alt="Everyone ready, with yellow face brackets and a Hold still banner" width="100%">
+      <h3>1. Set it down</h3>
+      Prop up your phone, tablet or Mac and press the shutter once. There's no countdown to set and nobody has to sprint back to the group. With the back camera, it waits for you to step into the shot.
     </td>
-    <td width="25%" valign="top">
-      <h3>🔁 Keeps shooting</h3>
-      Press once. A new photo every time the whole group is ready again, until you stop it.
+    <td width="33%" valign="top">
+      <img src="docs/images/shot-waiting.jpg" alt="Two of three people ready, with a hint on the person looking away" width="100%">
+      <h3>2. It waits until everyone's ready</h3>
+      SmartShot watches every face. When everyone is in place, settled and looking at the camera, the brackets turn yellow and it takes the photo, on a frame where nobody is mid-blink.
     </td>
-    <td width="25%" valign="top">
-      <h3>📸 Full quality</h3>
-      HEIF or ProRAW, up to 48 MP, with the same processing as the built-in camera.
-    </td>
-    <td width="25%" valign="top">
-      <h3>🔒 Private</h3>
-      Everything happens on your device. No account, no cloud, nothing leaves your phone.
+    <td width="33%" valign="top">
+      <img src="docs/images/shot-posing.jpg" alt="The group in a new pose, Hold still, 6 taken" width="100%">
+      <h3>3. Keep posing</h3>
+      It doesn't stop at one. Change your pose, settle again and it takes another, as many as you like, until you press stop. Then pick your favourite.
     </td>
   </tr>
 </table>
-
-<br>
 
 ## Features
 
-<table>
-  <tr>
-    <td width="33%" valign="top">
-      <img src="docs/images/holding.png" alt="Everyone ready: yellow face brackets, a Hold still banner and the shutter ring filling" width="100%">
-      <h3>Shoots at the right moment</h3>
-      When everyone is ready, the brackets turn yellow and the shutter ring fills while the group holds still. The photo is taken on the first frame where nobody is mid-blink.
-    </td>
-    <td width="33%" valign="top">
-      <img src="docs/images/waiting.png" alt="Two of three people ready, with a hint on the person who is looking away" width="100%">
-      <h3>Knows who's not ready</h3>
-      Live hints show who's looking away, moving or blinking, and the banner counts how many people are ready. With the back camera it waits for you to step into the shot first.
-    </td>
-    <td width="33%" valign="top">
-      <img src="docs/images/format.png" alt="The Format panel with HEIF and RAW, 12 and 48 megapixels" width="100%">
-      <h3>Pro formats, built in</h3>
-      HEIF or Apple ProRAW at 12, 24 or 48 MP, as your device allows. 48 MP uses the main camera and switches lenses for .5× and telephoto automatically.
-    </td>
-  </tr>
-</table>
-
 **Camera**
+- HEIF or Apple ProRAW at 12, 24 or 48 MP, as your device allows. 48 MP uses the main camera and switches lenses for .5× and telephoto automatically.
 - A clean, familiar interface with Liquid Glass controls (iOS 26 and later; a material look on earlier versions).
 - Zoom buttons and pinch to zoom, tap to focus and expose, flash, front and back cameras.
 - Icons turn with your phone; the camera recovers cleanly from calls, FaceTime and Split View.
