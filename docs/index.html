@@ -608,8 +608,8 @@
       <div class="download reveal">
         <span class="platform">Mac</span>
         <h3>SmartShot for Mac</h3>
-        <p>Apple silicon and Intel. macOS 14 or later. Notarized: unzip, move to Applications and open.</p>
-        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip" download>Download for Mac</a>
+        <p>Apple silicon and Intel. macOS 14 or later. Notarized by Apple: open the installer and drag SmartShot to Applications.</p>
+        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg" download>Download for Mac</a>
       </div>
       <div class="download reveal">
         <span class="platform">iPhone &amp; iPad</span>
@@ -637,7 +637,7 @@
     const touchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;   // iPadOS reports itself as a Mac
     const isIOS = /iPhone|iPad|iPod/.test(ua) || touchMac;
     const isMac = /Macintosh/.test(ua) && !touchMac;
-    const file = isIOS ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa' : isMac ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.zip' : null;
+    const file = isIOS ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa' : isMac ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg' : null;
     const label = isIOS ? 'Download for iPhone' : isMac ? 'Download for Mac' : null;
     if (!file) return;
     document.querySelectorAll('[data-smart-download]').forEach(a => {
