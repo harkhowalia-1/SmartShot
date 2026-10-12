@@ -7,7 +7,7 @@ Everything to paste into App Store Connect. One Universal Purchase app (iPhone, 
 | Field | Value |
 |---|---|
 | Platforms | iOS **and** macOS (tick both) |
-| Name | SmartShot  *(if taken: SmartShot: Group Camera)* |
+| Name | SmartShot Camera *("SmartShot" alone is taken)* |
 | Primary language | English (U.S.) |
 | Bundle ID | com.harkhowalia.smartshot |
 | SKU | smartshot-001 |
@@ -17,7 +17,7 @@ Everything to paste into App Store Connect. One Universal Purchase app (iPhone, 
 
 | Field | Value |
 |---|---|
-| Subtitle (30) | No timer. Just join the shot. |
+| Subtitle (30) | Set it down. Join the shot. |
 | Category | Photo & Video *(secondary: none)* |
 | Content rights | Does not contain third-party content |
 | Age rating | Answer **None / No** to every question → **4+** |
