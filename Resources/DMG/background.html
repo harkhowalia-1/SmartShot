@@ -1,0 +1,76 @@
+<!doctype html><meta charset="utf-8"><style>
+html,body{margin:0;width:660px;height:420px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",sans-serif;-webkit-font-smoothing:antialiased}
+.world{position:absolute;inset:-30px} .world svg{position:absolute;inset:0;width:100%;height:100%;filter:blur(12px) saturate(.9)}
+.veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,250,244,.78) 0%,rgba(255,246,236,.52) 46%,rgba(255,240,228,.3) 70%,rgba(255,240,228,0) 100%)}
+.ledge{position:absolute;left:0;right:0;top:300px;bottom:0;background:linear-gradient(180deg,#F2ECE3 0,#D6CEC2 3%,#BEB5A9 45%,#A69D90 100%)}
+.ledge::before{content:"";position:absolute;left:0;right:0;top:0;height:7px;background:linear-gradient(180deg,#FBF8F3,#DCD4C8)}
+.shadow{position:absolute;top:296px;width:150px;height:18px;border-radius:50%;background:radial-gradient(closest-side,rgba(60,40,30,.32),rgba(60,40,30,0))}
+.title{position:absolute;left:0;right:0;top:34px;text-align:center;color:#1D1D1F;font-size:30px;font-weight:700;letter-spacing:-.03em}
+.sub{position:absolute;left:0;right:0;top:74px;text-align:center;color:#4A3F45;font-size:14px;font-weight:500;letter-spacing:-.01em}
+.arrow{filter:drop-shadow(0 1px 2px rgba(120,80,0,.35));position:absolute;left:236px;top:150px;width:188px;height:80px}
+.hint{position:absolute;left:0;right:0;top:372px;text-align:center;color:#3B342E;font-size:12.5px;font-weight:500;letter-spacing:-.005em;opacity:.85}
+</style>
+<div class="world"><svg data-layout-allow-overflow class="" viewBox="0 200 600 337.5" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" style=""><defs>
+    <linearGradient id="sky-dmg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FACC94"/><stop offset="0.5" stop-color="#F59E85"/><stop offset="1" stop-color="#8C78AD"/>
+    </linearGradient>
+    <linearGradient id="ground-dmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5C8566"/><stop offset="1" stop-color="#385C4A"/></linearGradient>
+    <filter id="sunblur-dmg" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+  <rect width="600" height="800" fill="url(#sky-dmg)"/>
+  <circle cx="432" cy="176" r="84" fill="#FFEDBF" fill-opacity="0.9" filter="url(#sunblur-dmg)"/>
+  <path d="M0 576.0 Q330.0 288.0 600 576.0 L600 800 L0 800 Z" fill="#6B669E" fill-opacity="0.75"/>
+  <path d="M0 576.0 Q120.0 336.0 600 576.0 L600 800 L0 800 Z" fill="#545C8C"/>
+  <rect y="560" width="600" height="240" fill="url(#ground-dmg)"/>
+  <g class="p1">
+    <path d="M67.5 800 L67.5 477.2 Q67.5 423.2 121.5 423.2 L166.5 423.2 Q220.5 423.2 220.5 477.2 L220.5 800 Z" fill="#299E9E"/>
+    <rect x="128.2" y="400.8" width="31.5" height="36.0" rx="15.7" fill="#EDC29E" fill-opacity="0.92"/>
+    <g class="p1-head">
+      <circle cx="144.0" cy="376.0" r="45" fill="#EDC29E"/>
+      <path d="M97.2 367.9 A46.8 46.8 0 0 1 190.8 367.9 Z" fill="#4D3324"/>
+      <g class="p1-face">
+        <g class="p1-eyes" style="transform-origin:144.0px 381.4px">
+          <circle cx="127.1" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="160.9" cy="381.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M159.8 390.1 A18.0 18.0 0 0 1 128.2 390.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p2">
+    <path d="M223.5 800 L223.5 445.2 Q223.5 391.2 277.5 391.2 L322.5 391.2 Q376.5 391.2 376.5 445.2 L376.5 800 Z" fill="#F2735C"/>
+    <rect x="284.2" y="368.8" width="31.5" height="36.0" rx="15.7" fill="#9E6E4F" fill-opacity="0.92"/>
+    <g class="p2-head">
+      <circle cx="300.0" cy="344.0" r="45" fill="#9E6E4F"/>
+      <path d="M253.2 335.9 A46.8 46.8 0 0 1 346.8 335.9 Z" fill="#1A1717"/>
+      <g class="p2-face">
+        <g class="p2-eyes" style="transform-origin:300.0px 349.4px">
+          <circle cx="283.1" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="316.9" cy="349.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M315.8 358.1 A18.0 18.0 0 0 1 284.2 358.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+  <g class="p3">
+    <path d="M379.5 800 L379.5 485.2 Q379.5 431.2 433.5 431.2 L478.5 431.2 Q532.5 431.2 532.5 485.2 L532.5 800 Z" fill="#384D8C"/>
+    <rect x="440.2" y="408.8" width="31.5" height="36.0" rx="15.7" fill="#D9A680" fill-opacity="0.92"/>
+    <g class="p3-head">
+      <circle cx="456.0" cy="384.0" r="45" fill="#D9A680"/>
+      <path d="M409.2 375.9 A46.8 46.8 0 0 1 502.8 375.9 Z" fill="#C79452"/>
+      <g class="p3-face">
+        <g class="p3-eyes" style="transform-origin:456.0px 389.4px">
+          <circle cx="439.1" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+          <circle cx="472.9" cy="389.4" r="4.5" fill="#000" fill-opacity="0.75"/>
+        </g>
+        <path d="M471.8 398.1 A18.0 18.0 0 0 1 440.2 398.1" fill="none" stroke="#000" stroke-opacity="0.55" stroke-width="4.05" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g></svg></div><div class="veil"></div>
+<div class="ledge"></div><div class="shadow" style="left:90px"></div><div class="shadow" style="left:420px"></div>
+<div class="title">SmartShot</div><div class="sub">Set it down. Join the shot.</div>
+<svg class="arrow" viewBox="0 0 188 80" fill="none">
+  <path d="M8 58 C60 10 128 10 168 46" stroke="#FFD60A" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 11"/>
+  <path d="M155 31 L172 50 L148 54" stroke="#FFD60A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<div class="hint">Drag SmartShot onto Applications to install</div>
