@@ -123,6 +123,13 @@ Shared/
 
 Face analysis runs on your device using Apple's Vision framework. Camera frames are never stored or sent anywhere, and photos are saved only to your own Photos library.
 
+
+## Support
+
+If you enjoy this project, you can support me here:
+
+<a href="https://buymeacoffee.com/harkhowalia"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy me a coffee" height="50"></a>
+
 ---
 
 <sub>SmartShot is an independent project and is not affiliated with, endorsed by or sponsored by Apple Inc. iPhone, iPad, Mac and macOS are trademarks of Apple Inc.</sub>
