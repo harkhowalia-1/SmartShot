@@ -11,6 +11,17 @@
 </p>
 
 <p align="center">
+  <a href="https://apps.apple.com/app/id6822031619"><img src="docs/images/badges/app-store.svg" alt="Download on the App Store" height="48"></a>
+</p>
+
+<p align="center">
+  <b>iPhone Duo's Smart Take, on every iPhone and Mac.</b><br>
+  Apple introduced Smart Take on iPhone Duo: a camera for group photos and self-timed shots that needs no timer,<br>
+  snaps when everyone is in position, settled and ready, and keeps capturing while you re-pose.<br>
+  SmartShot brings that same experience to every iPhone and iPad running iOS 17 or later, and to the Mac.
+</p>
+
+<p align="center">
   <img alt="iOS 17+" src="https://img.shields.io/badge/iOS-17%2B-000000?style=flat-square&logo=apple&logoColor=white">
   <img alt="iPadOS 17+" src="https://img.shields.io/badge/iPadOS-17%2B-000000?style=flat-square&logo=apple&logoColor=white">
   <img alt="macOS 14+" src="https://img.shields.io/badge/macOS-14%2B-000000?style=flat-square&logo=apple&logoColor=white">
@@ -86,14 +97,16 @@ The group is ready once nobody new has joined for a second and everyone has been
 
 ## Download
 
-Get the latest version from [**Releases**](../../releases/latest).
+SmartShot is **free on the App Store** for iPhone, iPad and Mac (one purchase, all devices):
+
+<a href="https://apps.apple.com/app/id6822031619"><img src="docs/images/badges/app-store.svg" alt="Download on the App Store" height="44"></a>
+
+Prefer to install directly? Every [**release**](../../releases/latest) also includes:
 
 | | | |
 |---|---|---|
-| **Mac** | [`SmartShot-macOS.dmg`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg) | Apple silicon and Intel, macOS 14 or later |
-| **iPhone & iPad** | [`SmartShot-iOS.ipa`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa) | iOS 17 or later, install with [AltStore](https://altstore.io) or [Sideloadly](https://sideloadly.io) |
-
-**Mac:** open the installer and drag SmartShot onto Applications. It's signed and notarized by Apple, so it opens like any other app.
+| **Mac** | [`SmartShot-macOS.dmg`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg) | Signed and notarized by Apple. Open it and drag SmartShot onto Applications. |
+| **iPhone & iPad** | [`SmartShot-iOS.ipa`](https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa) | For sideloading with [AltStore](https://altstore.io) or [Sideloadly](https://sideloadly.io). Most people should use the App Store. |
 
 ## Build from source
 
@@ -132,6 +145,6 @@ If you enjoy this project, you can support me here:
 
 ---
 
-<sub>SmartShot is an independent project and is not affiliated with, endorsed by or sponsored by Apple Inc. iPhone, iPad, Mac and macOS are trademarks of Apple Inc.</sub>
+<sub>SmartShot is an independent project and is not affiliated with, endorsed by or sponsored by Apple Inc. iPhone, iPhone Duo, iPad, Mac, macOS and App Store are trademarks of Apple Inc. Smart Take is a feature of Apple's iPhone Duo; SmartShot is an independent app inspired by it.</sub>
 
 <sub>Copyright © 2026 Harkhowalia. All rights reserved.</sub>

@@ -124,6 +124,10 @@
   .download .platform { font-size:13px; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
   .download p { color:var(--muted); font-size:15px; flex:1; }
   .download .button { align-self:flex-start; margin-top:14px; }
+  .download .badge { align-self:flex-start; margin-top:14px; display:block; line-height:0; }
+  .download .badge img { height:50px; width:auto; }
+  .download .badge:hover { opacity:.85; text-decoration:none; }
+  .download .alt { align-self:flex-start; margin-top:4px; font-size:15px; }
 
   footer { border-top:1px solid var(--line); padding:28px 0 48px; color:var(--muted); font-size:12px; }
   footer .wrap { display:flex; flex-direction:column; gap:8px; }
@@ -606,16 +610,17 @@
     <p class="lede reveal">Free. For iPhone, iPad and Mac.</p>
     <div class="downloads">
       <div class="download reveal">
-        <span class="platform">Mac</span>
-        <h3>SmartShot for Mac</h3>
-        <p>Apple silicon and Intel. macOS 14 or later. Notarized by Apple: open the installer and drag SmartShot to Applications.</p>
-        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg" download>Download for Mac</a>
+        <span class="platform">iPhone &amp; iPad</span>
+        <h3>SmartShot for iPhone and iPad</h3>
+        <p>Free on the App Store. iOS 17 or later.</p>
+        <a class="badge" href="https://apps.apple.com/app/id6822031619"><img src="images/badges/app-store.svg" alt="Download on the App Store" width="150" height="50"></a>
       </div>
       <div class="download reveal">
-        <span class="platform">iPhone &amp; iPad</span>
-        <h3>SmartShot for iPhone</h3>
-        <p>iOS 17 or later. Install the .ipa with AltStore or Sideloadly, or build it from the source code.</p>
-        <a class="button" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa" download>Download for iPhone</a>
+        <span class="platform">Mac</span>
+        <h3>SmartShot for Mac</h3>
+        <p>Free on the Mac App Store. Apple silicon and Intel, macOS 14 or later.</p>
+        <a class="button" href="https://apps.apple.com/app/id6822031619?platform=mac">Get it on the Mac App Store</a>
+        <a class="alt" href="https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg" download>Or download the installer (DMG) ›</a>
       </div>
     </div>
   </div>
@@ -625,25 +630,23 @@
   <div class="wrap">
     <span>SmartShot is an independent project and is not affiliated with, endorsed by or sponsored by Apple Inc. iPhone, iPad, Mac and macOS are trademarks of Apple Inc.</span>
     <span><a href="privacy.html">Privacy Policy</a> · <a href="https://github.com/harkhowalia-1/SmartShot/issues">Support</a></span>
-    <span><a href="https://buymeacoffee.com/harkhowalia" target="_blank" rel="noopener"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy me a coffee" height="44" style="display:block"></a></span>
     <span>Copyright © 2026 Harkhowalia. All rights reserved.</span>
   </div>
 </footer>
 
 <script>
-  // The main Download buttons fetch the right file for this device directly;
-  // anywhere else they scroll to the download section.
+  // The main Download buttons open SmartShot on the App Store for this device
+  // (the Mac App Store on a Mac); anywhere else they scroll to the download section.
   (() => {
     const ua = navigator.userAgent;
     const touchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;   // iPadOS reports itself as a Mac
     const isIOS = /iPhone|iPad|iPod/.test(ua) || touchMac;
     const isMac = /Macintosh/.test(ua) && !touchMac;
-    const file = isIOS ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-iOS.ipa' : isMac ? 'https://github.com/harkhowalia-1/SmartShot/releases/latest/download/SmartShot-macOS.dmg' : null;
-    const label = isIOS ? 'Download for iPhone' : isMac ? 'Download for Mac' : null;
+    const file = isIOS ? 'https://apps.apple.com/app/id6822031619' : isMac ? 'https://apps.apple.com/app/id6822031619?platform=mac' : null;
+    const label = isIOS ? 'Get it on the App Store' : isMac ? 'Get it on the Mac App Store' : null;
     if (!file) return;
     document.querySelectorAll('[data-smart-download]').forEach(a => {
       a.href = file;
-      a.setAttribute('download', '');
       if (a.classList.contains('button')) a.textContent = label;
     });
   })();
