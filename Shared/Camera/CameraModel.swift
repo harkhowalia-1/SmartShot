@@ -908,6 +908,32 @@ extension CameraModel: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
+// MARK: - Shutter sound (Mac)
+
+#if os(macOS)
+/// The Mac's own camera shutter sound, the one Screenshot and Photo Booth use.
+/// Falls back to a built-in alert sound if that file ever moves.
+@MainActor
+enum ShutterSound {
+    private static let sound: NSSound? = {
+        let paths = [
+            "/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/system/Shutter.aif",
+            "/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/system/Grab.aif",
+        ]
+        for path in paths where FileManager.default.fileExists(atPath: path) {
+            if let sound = NSSound(contentsOfFile: path, byReference: true) { return sound }
+        }
+        return NSSound(named: "Tink")
+    }()
+
+    static func play() {
+        guard let sound else { return }
+        if sound.isPlaying { sound.stop() }
+        sound.play()
+    }
+}
+#endif
+
 // MARK: - Photo delegate
 
 /// Reports exactly once, even when a capture fails before any photo is processed.
@@ -918,6 +944,14 @@ private final class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegat
     init(completion: @escaping (Data?) -> Void) {
         self.completion = completion
     }
+
+    #if os(macOS)
+    // iOS plays the system shutter sound for every capture; macOS plays nothing, so the Mac
+    // app plays the same kind of click at the moment the photo is taken.
+    func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        Task { @MainActor in ShutterSound.play() }
+    }
+    #endif
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         if error == nil { data = photo.fileDataRepresentation() }
