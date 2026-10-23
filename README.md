@@ -73,6 +73,7 @@
 - HEIF or Apple ProRAW at 12, 24 or 48 MP, as your device allows. 48 MP uses the main camera and switches lenses for .5× and telephoto automatically.
 - A clean, familiar interface with Liquid Glass controls (iOS 26 and later; a material look on earlier versions).
 - Zoom buttons and pinch to zoom, tap to focus and expose, flash, front and back cameras.
+- With the back camera, the flash light blinks after every automatic photo, so the group knows it was taken (like Smart Take on iPhone Duo).
 - Icons turn with your phone; the camera recovers cleanly from calls, FaceTime and Split View.
 - On Mac: any built-in, external or iPhone camera. Press Space to start.
 

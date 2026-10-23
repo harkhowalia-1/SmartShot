@@ -809,12 +809,14 @@ final class CameraModel: NSObject {
         needsNewMoment = true
         smartShotCount += 1
         rearmDetector()
-        capturePhoto()
+        capturePhoto(signalWithLight: true)
     }
 
     // MARK: - Photo
 
-    func capturePhoto() {
+    /// `signalWithLight`: after the exposure, blink the back camera's light so the group in front
+    /// of the phone (who can't see the screen) knows a photo was just taken, like Smart Take.
+    func capturePhoto(signalWithLight: Bool = false) {
         guard !isCapturing else { return }
         isCapturing = true
         var settings: AVCapturePhotoSettings
@@ -859,7 +861,17 @@ final class CameraModel: NSObject {
         }
 
         let id = settings.uniqueID
-        let delegate = PhotoCaptureDelegate { [weak self] data in
+        var lightDevice: AVCaptureDevice?
+        #if os(iOS)
+        if signalWithLight, position == .back, settings.flashMode == .off,
+           let device = videoInput?.device, device.hasTorch {
+            lightDevice = device
+        }
+        #endif
+        let delegate = PhotoCaptureDelegate(onCaptured: { [weak self] in
+            guard let lightDevice else { return }
+            self?.blinkLight(on: lightDevice)
+        }) { [weak self] data in
             // Make the thumbnail here, off the main thread: decoding a 48MP photo there stutters.
             let thumbnail = data.flatMap { Self.thumbnail(from: $0, maxPixels: 240) }
             Task { @MainActor in self?.photoFinished(id: id, data: data, thumbnail: thumbnail, isRAW: isRAW) }
@@ -868,6 +880,23 @@ final class CameraModel: NSObject {
         lastCaptureID += 1
         let output = photoOutput
         sessionQueue.async { output.capturePhoto(with: settings, delegate: delegate) }
+    }
+
+    /// A short, bright pulse of the camera light. Runs on the session queue after the photo has
+    /// been exposed, so it never shows up in the picture.
+    nonisolated private func blinkLight(on device: AVCaptureDevice) {
+        #if os(iOS)
+        sessionQueue.async {
+            guard device.isTorchAvailable, (try? device.lockForConfiguration()) != nil else { return }
+            try? device.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
+            device.unlockForConfiguration()
+            self.sessionQueue.asyncAfter(deadline: .now() + 0.15) {
+                guard (try? device.lockForConfiguration()) != nil else { return }
+                if device.torchMode != .off { device.torchMode = .off }
+                device.unlockForConfiguration()
+            }
+        }
+        #endif
     }
 
     private func photoFinished(id: Int64, data: Data?, thumbnail: PlatformImage?, isRAW: Bool) {
@@ -912,11 +941,18 @@ extension CameraModel: AVCaptureVideoDataOutputSampleBufferDelegate {
 
 /// Reports exactly once, even when a capture fails before any photo is processed.
 private final class PhotoCaptureDelegate: NSObject, AVCapturePhotoCaptureDelegate {
+    private let onCaptured: () -> Void
     private let completion: (Data?) -> Void
     private var data: Data?
 
-    init(completion: @escaping (Data?) -> Void) {
+    init(onCaptured: @escaping () -> Void = {}, completion: @escaping (Data?) -> Void) {
+        self.onCaptured = onCaptured
         self.completion = completion
+    }
+
+    /// The exposure is done (the shutter sound plays now); the photo is still being processed.
+    func photoOutput(_ output: AVCapturePhotoOutput, didCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+        onCaptured()
     }
 
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
