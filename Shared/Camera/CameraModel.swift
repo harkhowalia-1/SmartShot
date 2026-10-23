@@ -855,9 +855,17 @@ final class CameraModel: NSObject {
         // Full processing (Deep Fusion, Smart HDR), the same as the native camera.
         if !isRAW { settings.photoQualityPrioritization = photoOutput.maxPhotoQualityPrioritization }
 
-        if let connection = photoOutput.connection(with: .video), let coordinator = rotationCoordinator {
-            let angle = coordinator.videoRotationAngleForHorizonLevelCapture
-            if connection.isVideoRotationAngleSupported(angle) { connection.videoRotationAngle = angle }
+        if let connection = photoOutput.connection(with: .video) {
+            // Save the photo the way the viewfinder shows it: selfies come out mirrored, as you saw
+            // yourself, instead of flipped in Photos.
+            if connection.isVideoMirroringSupported {
+                connection.automaticallyAdjustsVideoMirroring = false
+                connection.isVideoMirrored = previewLayer.connection?.isVideoMirrored ?? false
+            }
+            if let coordinator = rotationCoordinator {
+                let angle = coordinator.videoRotationAngleForHorizonLevelCapture
+                if connection.isVideoRotationAngleSupported(angle) { connection.videoRotationAngle = angle }
+            }
         }
 
         let id = settings.uniqueID
@@ -882,19 +890,24 @@ final class CameraModel: NSObject {
         sessionQueue.async { output.capturePhoto(with: settings, delegate: delegate) }
     }
 
-    /// A short, bright pulse of the camera light. Runs on the session queue after the photo has
+    /// A soft glow of the camera light: a dim indicator, not a flash. It fades up to about 10%
+    /// and back over roughly a third of a second. Runs on the session queue after the photo has
     /// been exposed, so it never shows up in the picture.
     nonisolated private func blinkLight(on device: AVCaptureDevice) {
         #if os(iOS)
-        sessionQueue.async {
-            guard device.isTorchAvailable, (try? device.lockForConfiguration()) != nil else { return }
-            try? device.setTorchModeOn(level: AVCaptureDevice.maxAvailableTorchLevel)
-            device.unlockForConfiguration()
-            self.sessionQueue.asyncAfter(deadline: .now() + 0.15) {
-                guard (try? device.lockForConfiguration()) != nil else { return }
-                if device.torchMode != .off { device.torchMode = .off }
+        let levels: [Float] = [0.03, 0.06, 0.1, 0.1, 0.06, 0.03]
+        let step = 0.055
+        for (i, level) in levels.enumerated() {
+            sessionQueue.asyncAfter(deadline: .now() + step * Double(i)) {
+                guard device.isTorchAvailable, (try? device.lockForConfiguration()) != nil else { return }
+                try? device.setTorchModeOn(level: level)
                 device.unlockForConfiguration()
             }
+        }
+        sessionQueue.asyncAfter(deadline: .now() + step * Double(levels.count)) {
+            guard (try? device.lockForConfiguration()) != nil else { return }
+            if device.torchMode != .off { device.torchMode = .off }
+            device.unlockForConfiguration()
         }
         #endif
     }
